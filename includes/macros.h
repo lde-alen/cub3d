@@ -6,7 +6,13 @@
 /*   By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 10:17:03 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/02/12 10:17:13 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/02/19 14:59:12 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef MACROS_H
+# define MACROS_H
+
+# define BUFFER_SIZE 4096
+
+#endif

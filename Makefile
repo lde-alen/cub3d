@@ -6,7 +6,7 @@
 #    By: lde-alen <lde-alen@student.42abudhabi.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/12 08:48:30 by lde-alen          #+#    #+#              #
-#    Updated: 2023/02/18 20:27:44 by lde-alen         ###   ########.fr        #
+#    Updated: 2023/02/19 14:55:51 by lde-alen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,6 @@ NAME			=		cub3d
 
 ## Directories
 LIBFT_DIR		=		libft/
-GNL_DIR			=		get_next_line/
 MLX_DIR			=		minilibx_opengl_20191021/
 SRCS_DIR		=		srcs/
 
