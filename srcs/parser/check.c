@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42abudhab       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 20:24:08 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/02/19 17:25:54 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/02/26 11:03:04 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	check_file(char *path)
 	rd = 4096;
 	str = (char *)malloc(sizeof(char) * 4096);
 	if (fd == -1)
-		return (ft_putstr_fd("ERROR: Could not open the file\n", 2), 1);
+		return (ft_putstr_fd("ERROR: Could not open the file.\n", 2), 1);
 	while (rd == 4096)
 	{
 		rd = read(fd, str, 4096);
