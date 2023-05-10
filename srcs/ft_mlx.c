@@ -6,19 +6,19 @@
 /*   By: myvh <myvh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:40:30 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/09 21:17:40 by myvh             ###   ########.fr       */
+/*   Updated: 2023/05/10 20:21:23 by myvh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-char	*ft_init_mlx(t_env *s, int save)
+char	*ft_init_mlx(t_env *s)
 {
 	char	*error;
 	float	*dist;
 
 	s->mlx.mlx = mlx_init();
-	if (save == 0)
+	// if (save == 0)
 		ft_adjust_resolution(s);
 	error = ft_texture(s);
 	if (error != NULL)
@@ -28,9 +28,9 @@ char	*ft_init_mlx(t_env *s, int save)
 	ft_surface_color(s);
 	ft_printf_sprite(s, dist);
 	free(dist);
-	if (save == 1)
-		ft_save_bitmap(s);
-	s->mlx.win = mlx_new_window(s->mlx.mlx, s->init.x_res, s->init.y_res, "MP");
+	// if (save == 1)
+	// 	ft_save_bitmap(s);
+	s->mlx.win = mlx_new_window(s->mlx.mlx, s->init.x_res, s->init.y_res, "Cub3D");
 	mlx_put_image_to_window(s->mlx.mlx, s->mlx.win, s->mlx.img.img, 0, 0);
 	mlx_hook(s->mlx.win, 2, 1L << 0, key_press, (void *)s);
 	mlx_hook(s->mlx.win, 3, 1L << 1, key_release, (void *)s);

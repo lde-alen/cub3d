@@ -6,7 +6,7 @@
 /*   By: myvh <myvh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:39:58 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/09 20:54:09 by myvh             ###   ########.fr       */
+/*   Updated: 2023/05/10 21:26:09 by myvh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_free(t_env *env)
 	free(env->mlx.img.opti);
 }
 
-int		ft_init_struct(char *file, int save)
+int		ft_init_struct(char *file)
 {
 	t_env		env;
 	char		*error;
@@ -55,7 +55,7 @@ int		ft_init_struct(char *file, int save)
 	if (env.size_x == -1)
 		return (ft_error("Error\nMalloc"));
 	error = ft_control_map(&env);
-	return (ft_init_struct2(&env, save, error));
+	return (ft_init_struct2(&env,  error));
 }
 
 int		ft_find_size_x(t_env *env)
@@ -77,13 +77,13 @@ int		ft_find_size_x(t_env *env)
 	return (size);
 }
 
-int		ft_init_struct2(t_env *env, int save, char *error)
+int		ft_init_struct2(t_env *env,  char *error)
 {
 	if (!error)
 		error = ft_sprite(env);
 	if (error && error[0] == 'E')
 		return (ft_error(error));
-	error = ft_init_mlx(env, save);
+	error = ft_init_mlx(env);
 	if (error && error[0] == 'E')
 		return (ft_error(error));
 	ft_free(env);
@@ -92,28 +92,17 @@ int		ft_init_struct2(t_env *env, int save, char *error)
 
 int		main(int ac, char **av)
 {
-	int	save;
-
-	save = 0;
-	if (ac == 3)
-		save = 1;
-	if (ac != 2 && ac != 3)
+	if (ac != 2)
 	{
-		printf("Error\nToo many or no arguments");
+		printf("Error: Invalid arguments");
 		return (-1);
 	}
-	if (ac == 3)
-		if (ft_strcmp(av[2], "--save") != 0)
-		{
-			printf("Error\n2nd arguments is not correct");
-			return (-1);
-		}
 	if (ft_strcmp(&av[1][(int)(ft_strlen(av[1]) - 4)], ".cub") != 0)
 	{
 		printf("Error\nFirst arguments is not a .cub");
 		return (-1);
 	}
-	if (ft_init_struct(av[1], save) == -1)
+	if (ft_init_struct(av[1]) == -1)
 		return (-1);
 	return (0);
 }

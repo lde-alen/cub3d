@@ -6,7 +6,7 @@
 /*   By: myvh <myvh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:40:39 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/09 20:58:35 by myvh             ###   ########.fr       */
+/*   Updated: 2023/05/10 20:26:01 by myvh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char		*ft_parse(t_map *map_def, int *fd)
 		if (line[i] == 'N' || line[i] == 'S' || line[i] == 'W' ||
 				line[i] == 'E')
 			error = ft_parse_texture(&line[i], map_def);
-		else if (line[i] == 'R' || line[i] == 'F' || line[i] == 'C')
+		else if (line[i] == 'F' || line[i] == 'C')
 			error = ft_parse_color(map_def, line);
 		else if (line[i] == '1')
 			ret = 0;
@@ -40,38 +40,10 @@ char		*ft_parse(t_map *map_def, int *fd)
 	return (error);
 }
 
-char		*ft_parse_resolution(t_map *init, char *line)
-{
-	int		i;
-
-	i = 1;
-	while (line[i] == ' ')
-		i++;
-	init->x_res = ft_atoi(&line[i]);
-	while (line[i] >= '0' && line[i] <= '9')
-		i++;
-	while (line[i] == ' ')
-		i++;
-	init->y_res = ft_atoi(&line[i]);
-	while (line[i] >= '0' && line[i] <= '9')
-		i++;
-	while (line[i] == ' ')
-		i++;
-	if (ft_atoi(&line[i]) != 0)
-		return ("Error\nToo many numbers in resolution");
-	if (init->x_res <= 0 || init->y_res <= 0)
-		return ("Error\nNot a valid resolution");
-	return (NULL);
-}
-
 char		*ft_parse_color(t_map *init, char *line)
 {
 	int			color;
 
-	if (line[0] == 'R')
-		return (ft_parse_resolution(init, line));
-	else
-	{
 		color = ft_convert_color(line);
 		if (color == -1)
 			return ("Error\nBad character in color\n");
@@ -79,7 +51,6 @@ char		*ft_parse_color(t_map *init, char *line)
 			init->floor = color;
 		else
 			init->ceiling = color;
-	}
 	return (NULL);
 }
 

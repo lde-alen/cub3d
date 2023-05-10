@@ -6,7 +6,7 @@
 /*   By: myvh <myvh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 10:12:26 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/09 21:17:10 by myvh             ###   ########.fr       */
+/*   Updated: 2023/05/10 20:22:33 by myvh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void			ft_mlx_pixel_put_sprite(t_img image, int x, int y, int color);
 void			ft_reset_opti(char **opti);
 int				ft_error(char *error);
 int				ft_size_mini_map(t_env *env);
-int				ft_init_struct(char *file, int save);
-char			*ft_init_mlx(t_env *env, int save);
+int				ft_init_struct(char *file);
+char			*ft_init_mlx(t_env *env);
 void			ft_free(t_env *env);
 int				ft_convert_color(char *str);
 char			*ft_parse(t_map *map_def, int *fd);
@@ -117,7 +117,7 @@ void			ft_print_all(t_env *env);
 t_key			ft_init_key(void);
 void			ft_up_down(t_env *env, int key);
 void			ft_jetpack(t_env *env);
-int				ft_init_struct2(t_env *env, int save, char *error);
+int				ft_init_struct2(t_env *env, char *error);
 void			ft_print_square(t_env *env, int x, int y, int size);
 void			ft_print_life(t_env *env);
 int				ft_find_size_x(t_env *env);
