@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lde-alen <lde-alen@student.42abudhabi.a    +#+  +:+       +#+         #
+#    By: myvh <myvh@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/19 09:20:19 by lde-alen          #+#    #+#              #
-#    Updated: 2021/12/23 13:30:01 by lde-alen         ###   ########.fr        #
+#    Updated: 2023/05/09 21:25:12 by myvh             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,15 @@ SRCS	= 	ft_bzero.c			\
 			ft_putstr_fd.c		\
 			ft_putendl_fd.c 	\
 			ft_putnbr_fd.c		\
+			ft_absolute.c\
+			ft_strtrim_path.c\
+			ft_strslen.c\
+			get_next_line.c\
+			ft_split_str.c\
+			ft_strnew.c\
+			ft_strjoin_size.c\
+			ft_strcpy.c\
+			ft_strcmp.c\
 			
 SRCS_B	=	ft_lstnew.c			\
 			ft_lstadd_front.c	\
