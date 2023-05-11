@@ -6,11 +6,64 @@
 /*   By: myvh <myvh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:40:39 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/11 05:41:17 by myvh             ###   ########.fr       */
+/*   Updated: 2023/05/11 05:58:25 by myvh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int			ft_convert_color(char *str)
+{
+	char	**s;
+	int		color;
+	int		i;
+
+	i = 0;
+	s = ft_split_str(str, " ,");
+	if (s[4] != NULL || ft_strslen(s) != 4 || ft_strlen(s[0]) != 1)
+		return (-1);
+	if (ft_check_color(ft_atoi(s[1]), ft_atoi(s[2]), ft_atoi(s[3])) == -1)
+		return (-1);
+	color = (ft_atoi(s[1]) * 256 + ft_atoi(s[2])) * 256 + ft_atoi(s[3]);
+	while (s[i])
+	{
+		free(s[i]);
+		i++;
+	}
+	free(s);
+	return (color);
+}
+
+char		*ft_parse_color(t_map *init, char *line)
+{
+	int			color;
+
+		color = ft_convert_color(line);
+		if (color == -1)
+			return ("Error\nBad character in color\n");
+		if (line[0] == 'F')
+			init->floor = color;
+		else
+			init->ceiling = color;
+	return (NULL);
+}
+
+char		*ft_parse_texture(char *line, t_map *map)
+{
+	if (line[0] == 'N' && line[1] == 'O')
+		map->texture[0] = ft_strtrim_path(&line[3], " ");
+	else if (line[0] == 'S' && line[1] == 'O')
+		map->texture[1] = ft_strtrim_path(&line[3], " ");
+	else if (line[0] == 'W' && line[1] == 'E')
+		map->texture[2] = ft_strtrim_path(&line[3], " ");
+	else if (line[0] == 'E' && line[1] == 'A')
+		map->texture[3] = ft_strtrim_path(&line[3], " ");
+	else if (line[0] == 'S' && line[1] == ' ')
+		map->texture[4] = ft_strtrim_path(&line[2], " ");
+	else
+		return ("Not a valid argument\n");
+	return (NULL);
+}
 
 char		*ft_parse(t_map *map_def, int *fd)
 {
@@ -38,57 +91,4 @@ char		*ft_parse(t_map *map_def, int *fd)
 		line = NULL;
 	}
 	return (error);
-}
-
-char		*ft_parse_color(t_map *init, char *line)
-{
-	int			color;
-
-		color = ft_convert_color(line);
-		if (color == -1)
-			return ("Error\nBad character in color\n");
-		if (line[0] == 'F')
-			init->floor = color;
-		else
-			init->ceiling = color;
-	return (NULL);
-}
-
-int			ft_convert_color(char *str)
-{
-	char	**s;
-	int		color;
-	int		i;
-
-	i = 0;
-	s = ft_split_str(str, " ,");
-	if (s[4] != NULL || ft_strslen(s) != 4 || ft_strlen(s[0]) != 1)
-		return (-1);
-	if (ft_check_color(ft_atoi(s[1]), ft_atoi(s[2]), ft_atoi(s[3])) == -1)
-		return (-1);
-	color = (ft_atoi(s[1]) * 256 + ft_atoi(s[2])) * 256 + ft_atoi(s[3]);
-	while (s[i])
-	{
-		free(s[i]);
-		i++;
-	}
-	free(s);
-	return (color);
-}
-
-char		*ft_parse_texture(char *line, t_map *map)
-{
-	if (line[0] == 'N' && line[1] == 'O')
-		map->texture[0] = ft_strtrim_path(&line[3], " ");
-	else if (line[0] == 'S' && line[1] == 'O')
-		map->texture[1] = ft_strtrim_path(&line[3], " ");
-	else if (line[0] == 'W' && line[1] == 'E')
-		map->texture[2] = ft_strtrim_path(&line[3], " ");
-	else if (line[0] == 'E' && line[1] == 'A')
-		map->texture[3] = ft_strtrim_path(&line[3], " ");
-	else if (line[0] == 'S' && line[1] == ' ')
-		map->texture[4] = ft_strtrim_path(&line[2], " ");
-	else
-		return ("Not a valid argument\n");
-	return (NULL);
 }
