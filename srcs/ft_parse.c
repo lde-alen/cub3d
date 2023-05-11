@@ -6,7 +6,7 @@
 /*   By: myvh <myvh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:40:39 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/10 20:26:01 by myvh             ###   ########.fr       */
+/*   Updated: 2023/05/11 05:41:17 by myvh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,17 +58,20 @@ int			ft_convert_color(char *str)
 {
 	char	**s;
 	int		color;
-	int		j;
+	int		i;
 
-	j = -1;
+	i = 0;
 	s = ft_split_str(str, " ,");
 	if (s[4] != NULL || ft_strslen(s) != 4 || ft_strlen(s[0]) != 1)
 		return (-1);
 	if (ft_check_color(ft_atoi(s[1]), ft_atoi(s[2]), ft_atoi(s[3])) == -1)
 		return (-1);
 	color = (ft_atoi(s[1]) * 256 + ft_atoi(s[2])) * 256 + ft_atoi(s[3]);
-	while (s[++j])
-		free(s[j]);
+	while (s[i])
+	{
+		free(s[i]);
+		i++;
+	}
 	free(s);
 	return (color);
 }

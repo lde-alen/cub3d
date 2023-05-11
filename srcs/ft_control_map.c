@@ -6,7 +6,7 @@
 /*   By: myvh <myvh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:39:43 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/11 05:33:58 by myvh             ###   ########.fr       */
+/*   Updated: 2023/05/11 05:39:41 by myvh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ char		*control_map(char **map, t_env *env)
 	j = -1;
 	while (++j < env->size_y)
 	{
-		i = -1;
-		while (map[j][++i])
+		i = 0;
+		while (map[j][i])
 		{
 			if (map[j][i] == '0')
 			{
@@ -59,6 +59,7 @@ char		*control_map(char **map, t_env *env)
 				if (error != NULL)
 					return (error);
 			}
+			i++;
 		}
 	}
 	if (env->pos.mk != 1)
