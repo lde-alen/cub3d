@@ -6,7 +6,7 @@
 /*   By: myvh <myvh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:40:06 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/09 21:20:49 by myvh             ###   ########.fr       */
+/*   Updated: 2023/05/11 05:34:02 by myvh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ int			resize_request(void *env)
 	if (!(dist = ft_printf_wall(env)))
 		ft_quit_mlx(env);
 	ft_surface_color(s);
-	ft_printf_sprite(s, dist);
 	free(dist);
 	mlx_put_image_to_window(s->mlx.mlx, s->mlx.win, s->mlx.img.img, 0, 0);
 	return (0);

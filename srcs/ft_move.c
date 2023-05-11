@@ -6,7 +6,7 @@
 /*   By: myvh <myvh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:40:34 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/09 20:58:35 by myvh             ###   ########.fr       */
+/*   Updated: 2023/05/11 05:34:01 by myvh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ void		ft_move(t_env *env)
 	if (!(dist = ft_printf_wall(env)))
 		ft_quit_mlx(env);
 	ft_surface_color(env);
-	ft_printf_sprite(env, dist);
 	free(dist);
 	mlx_put_image_to_window(env->mlx.mlx, env->mlx.win, env->mlx.img.img, 0, 0);
 }

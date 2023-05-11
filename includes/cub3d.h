@@ -6,7 +6,7 @@
 /*   By: myvh <myvh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 10:12:26 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/10 20:22:33 by myvh             ###   ########.fr       */
+/*   Updated: 2023/05/11 05:33:46 by myvh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,19 +91,19 @@ int				resize_request(void *env);
 char			*ft_texture(t_env *s);
 int				ft_mlx_get_color(t_texture text, int x, int y);
 int				ft_find_x_text(t_env *env, t_wall *w, int or);
-void			ft_print_sprite(t_env *env, int x_text);
+
 char			*ft_check_zero(char **map, int i, int j, t_env *env);
 char			*control_map(char **map, t_env *env);
 float			ft_lim_alpha(float alpha);
 float			ft_dist(float x_w, float y_w, float x0, float y0);
-void			ft_printf_sprite(t_env *env, float *dist);
-t_sprite		ft_init_sprite(void);
+
+
 void			ft_save_bitmap(t_env *env);
 void			ft_fill_bmp(t_env *env, int fd);
 int				ft_create_image(t_env *env, int fd);
-char			*ft_sprite(t_env *env);
-void			ft_sort_sprite(t_env *env);
-void			ft_adjust_sprite_value(t_env *env, int i);
+
+
+
 int				key_press(int key, void *param);
 void			key_press_bonus(int key, t_env *env);
 int				key_release(int key, void *param);
@@ -111,8 +111,6 @@ void			ft_arme(t_env *env, t_weapon weapon);
 t_weapon		ft_weapon(int a);
 t_weapon		ft_tir(int a);
 int				ft_which_weapons(int m);
-float			ft_find_alpha_sprite(t_env *env);
-void			ft_fill_sprite_struct(t_env *env);
 void			ft_print_all(t_env *env);
 t_key			ft_init_key(void);
 void			ft_up_down(t_env *env, int key);

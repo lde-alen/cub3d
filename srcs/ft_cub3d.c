@@ -6,7 +6,7 @@
 /*   By: myvh <myvh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:39:58 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/10 21:26:09 by myvh             ###   ########.fr       */
+/*   Updated: 2023/05/11 05:34:10 by myvh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	ft_free(t_env *env)
 	free(env->init.texture[2]);
 	free(env->init.texture[3]);
 	free(env->init.texture[4]);
-	free(env->sprite.sp);
 	free(env->size_line);
 	while (env->map[++i])
 		free(env->map[i]);
@@ -79,8 +78,6 @@ int		ft_find_size_x(t_env *env)
 
 int		ft_init_struct2(t_env *env,  char *error)
 {
-	if (!error)
-		error = ft_sprite(env);
 	if (error && error[0] == 'E')
 		return (ft_error(error));
 	error = ft_init_mlx(env);

@@ -6,7 +6,7 @@
 #    By: myvh <myvh@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/12 08:48:30 by lde-alen          #+#    #+#              #
-#    Updated: 2023/05/09 21:11:05 by myvh             ###   ########.fr        #
+#    Updated: 2023/05/11 05:36:55 by myvh             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,9 +39,6 @@ SRCS			=		srcs/ft_cub3d.c			\
 								srcs/ft_move.c\
 								srcs/ft_parse.c\
 								srcs/ft_print_wall.c\
-								srcs/ft_save_bitmap.c\
-								srcs/ft_sprite_1.c\
-								srcs/ft_sprite_2.c\
 								srcs/ft_texture.c\
 
 

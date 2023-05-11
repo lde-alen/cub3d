@@ -6,7 +6,7 @@
 /*   By: myvh <myvh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 10:16:46 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/09 20:30:48 by myvh             ###   ########.fr       */
+/*   Updated: 2023/05/11 05:31:16 by myvh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,22 +107,6 @@ typedef struct	s_sp
 	float	ang;
 }				t_sp;
 
-typedef struct	s_sprite
-{
-	int			nb;
-	float		sprite_x;
-	float		sprite_y;
-	int			screen_x;
-	int			height;
-	int			y_end;
-	int			y;
-	int			y_start;
-	int			width;
-	int			x;
-	int			x_end;
-	t_sp		*sp;
-}				t_sprite;
-
 typedef struct	s_key
 {
 	short		w;
@@ -143,7 +127,6 @@ typedef struct	s_env
 	int			size_y;
 	int			*size_line;
 	t_texture	tex[5];
-	t_sprite	sprite;
 	t_key		key;
 }				t_env;
 

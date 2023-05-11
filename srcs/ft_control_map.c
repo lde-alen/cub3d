@@ -6,7 +6,7 @@
 /*   By: myvh <myvh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:39:43 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/09 20:58:35 by myvh             ###   ########.fr       */
+/*   Updated: 2023/05/11 05:33:58 by myvh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char		*ft_control_map(t_env *s)
 				s->pos.mk++;
 			}
 			else if (s->map[j][i] != '1' && s->map[j][i] != '0'
-				&& s->map[j][i] != '2' && s->map[j][i] != ' ')
+				 && s->map[j][i] != ' ')
 			{
 				return ("Error\nBad character inside the map\n");
 			}
@@ -48,20 +48,17 @@ char		*control_map(char **map, t_env *env)
 	char	*error;
 
 	j = -1;
-	env->sprite.nb = 0;
 	while (++j < env->size_y)
 	{
 		i = -1;
 		while (map[j][++i])
 		{
-			if (map[j][i] == '0' || map[j][i] == '2')
+			if (map[j][i] == '0')
 			{
 				error = ft_check_zero(map, i, j, env);
 				if (error != NULL)
 					return (error);
 			}
-			if (map[j][i] == '2')
-				env->sprite.nb++;
 		}
 	}
 	if (env->pos.mk != 1)

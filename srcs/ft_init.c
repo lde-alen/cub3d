@@ -6,7 +6,7 @@
 /*   By: myvh <myvh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:40:27 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/09 20:58:35 by myvh             ###   ########.fr       */
+/*   Updated: 2023/05/11 05:24:06 by myvh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ t_map		ft_init_map_struct(void)
 {
 	t_map	map;
 
-	map.x_res = -1;
-	map.y_res = -1;
+	map.x_res = 800;
+	map.y_res = 600;
 	map.floor = -1;
 	map.ceiling = -1;
 	return (map);
