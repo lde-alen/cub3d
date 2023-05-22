@@ -18,8 +18,7 @@ char	*ft_init_mlx(t_env *s)
 	float	*dist;
 
 	s->mlx.mlx = mlx_init();
-	// if (save == 0)
-		ft_adjust_resolution(s);
+	ft_adjust_resolution(s);
 	error = ft_texture(s);
 	if (error != NULL)
 		return (error);

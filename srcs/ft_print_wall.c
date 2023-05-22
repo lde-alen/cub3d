@@ -49,7 +49,8 @@ void		ft_print_column(t_wall *w, int x, t_env *env, float alpha)
 	nb_pixel = ((float)env->init.y_res * 0.5) / (cos(alpha - env->pos.dir)
 		* w->dist);
 	y = round((env->init.y_res - nb_pixel) * env->pos.z / 4);
-	y = y < 0 ? 0 : y;
+	if (y < 0)
+		y = 0;
 	tex.x = ft_find_x_text(env, w, or);
 	while (y < round((env->init.y_res - nb_pixel) * (env->pos.z - 4)
 		/ 4 + env->init.y_res) && x <= env->init.x_res && y < env->init.y_res)

@@ -30,10 +30,16 @@ char		*ft_unsigned_itoa(unsigned int num)
 	int				size;
 
 	i = 1;
-	size = num != 0 ? ft_count_char(num) : 1;
+	if (num != 0)
+		size = ft_count_char(num);
+	else
+   		size = 1;
 	if (!(str = (char *)malloc((size + 1) * sizeof(char))))
 		return (NULL);
-	str[0] = num != 0 ? '-' : '0';
+	if (num != 0)
+    	str[0] = '-';
+	else
+    	str[0] = '0';
 	while (num >= 1)
 	{
 		str[size - i] = num % 10 + '0';

@@ -40,10 +40,14 @@ int		ft_mlx_get_color(t_texture text, int x, int y)
 	unsigned int	color;
 	int				index;
 
-	x = x < 0 ? 0 : x;
-	x = x >= text.width ? text.width - 1 : x;
-	y = y < 0 ? 0 : y;
-	y = y >= text.height ? text.height - 1 : y;
+	if (x < 0)
+		x = 0;
+	if (x >= text.width)
+		x = text.width - 1;
+	if (y < 0)
+		y = 0;
+	if (y >= text.height)
+		y = text.height - 1;
 	index = y * text.data.line_len + x * (text.data.bpp / 8);
 	color = ((int *)text.data.addr)[index / 4];
 	return (color);
