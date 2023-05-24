@@ -15,7 +15,7 @@
 
 typedef struct	s_map
 {
-	char	*texture[8];
+	char	*texture[4];
 	int		x_res;
 	int		y_res;
 	int		floor;

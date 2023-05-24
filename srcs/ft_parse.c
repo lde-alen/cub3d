@@ -58,8 +58,6 @@ char		*ft_parse_texture(char *line, t_map *map)
 		map->texture[2] = ft_strtrim_path(&line[3], " ");
 	else if (line[0] == 'E' && line[1] == 'A')
 		map->texture[3] = ft_strtrim_path(&line[3], " ");
-	else if (line[0] == 'S' && line[1] == ' ')
-		map->texture[4] = ft_strtrim_path(&line[2], " ");
 	else
 		return ("Not a valid argument\n");
 	return (NULL);
@@ -87,6 +85,8 @@ char		*ft_parse(t_map *map_def, int *fd)
 			error = ft_parse_color(map_def, line);
 		else if (line[i] == '1')
 			ret = 0;
+		else if (line [i] != '\0')
+			error = "Invalid character in .cub\n";
 		free(line);
 		line = NULL;
 	}

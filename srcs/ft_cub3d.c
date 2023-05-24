@@ -21,7 +21,6 @@ void	ft_free(t_env *env)
 	free(env->init.texture[1]);
 	free(env->init.texture[2]);
 	free(env->init.texture[3]);
-	free(env->init.texture[4]);
 	free(env->size_line);
 	while (env->map[++i])
 		free(env->map[i]);

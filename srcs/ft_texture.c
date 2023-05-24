@@ -18,7 +18,7 @@ char	*ft_texture(t_env *s)
 	int		fd;
 
 	i = -1;
-	while (++i < 5)
+	while (++i < 4)
 	{
 		fd = open(s->init.texture[i], O_RDONLY);
 		if (fd == -1)

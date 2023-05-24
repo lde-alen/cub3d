@@ -101,11 +101,10 @@ void	ft_quit_mlx(t_env *s)
 	int		i;
 
 	i = -1;
-	while (++i < 5)
+	while (++i < 4)
 		mlx_destroy_image(s->mlx.mlx, s->tex[i].img);
 	mlx_destroy_image(s->mlx.mlx, s->mlx.img.img);
 	mlx_destroy_window(s->mlx.mlx, s->mlx.win);
-	mlx_destroy_display(s->mlx.mlx);
 	free(s->mlx.mlx);
 	ft_free(s);
 	exit(0);
