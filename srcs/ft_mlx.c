@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42za>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 16:35:06 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/27 16:35:09 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 00:31:52 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ char	*ft_init_mlx(t_env *s)
 	float	*dist;
 
 	s->mlx.mlx = mlx_init();
-	// ft_adjust_resolution(s);
 	error = ft_texture(s);
 	if (error != NULL)
 		return (error);
@@ -36,18 +35,6 @@ char	*ft_init_mlx(t_env *s)
 	ft_quit_mlx(s);
 	return (NULL);
 }
-
-// void	ft_adjust_resolution(t_env *s)
-// {
-// 	int		x_screen_size;
-// 	int		y_screen_size;
-
-// 	mlx_get_screen_size(s->mlx.mlx, &x_screen_size, &y_screen_size);
-// 	if (s->init.x_res > x_screen_size)
-// 		s->init.x_res = x_screen_size;
-// 	if (s->init.y_res > y_screen_size)
-// 		s->init.y_res = y_screen_size;
-// }
 
 void	ft_init_img(t_env *s)
 {
