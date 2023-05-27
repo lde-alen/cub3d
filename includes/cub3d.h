@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42za>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 10:12:26 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/27 16:55:08 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 02:56:31 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
  *  Prototypes
  * 
  **/
-int	ft_check_map(char *str);
+int				ft_check_map(char *str);
 float			angle(float alpha, float beta);
 int				ft_check_color(int r, int g, int b);
 int				field_of_view(t_env *env, float alpha);
@@ -44,14 +44,13 @@ int				ft_error(char *error);
 int				ft_size_mini_map(t_env *env);
 int				ft_init_struct(char *file);
 char			*ft_init_mlx(t_env *env);
-void			ft_free(t_env *env);
+void			ft_america(t_env *env);
 int				ft_convert_color(char *str);
 char			*ft_parse(t_map *map_def, int *fd);
 char			*ft_parse_color(t_map *init, char *line);
 char			*ft_parse_resolution(t_map *init, char *line);
 char			*ft_parse_texture(char *line, t_map *map_def);
-char			*ft_parse_map(int fd, char *line, char **map, char *file,
-					t_position *pos);
+char			*ft_parse_map(int fd, char *line, char **map, char *file, t_position *pos);
 char			*ft_fill_map(char *file, char **map, int size);
 char			*ft_fill_line(int fd, char *line, char **map, int size);
 t_map			ft_init_map_struct();
@@ -69,8 +68,7 @@ t_wall			*ft_fill_wall_struct(char type, float x, float y, t_wall *w);
 t_wall			*ft_init_wall(void);
 float			ft_orientation(char c);
 int				it_is_a_wall(float x, float y, t_env *env);
-t_wall			*find_next_wall(t_env *env, t_wall *w, float delta_x,
-					float delta_y);
+t_wall			*find_next_wall(t_env *env, t_wall *w, float delta_x, float delta_y);
 t_dist			*ft_init_dist(t_env *env, float alpha);
 float			ft_init_pos(float pos);
 char			ft_orient_wall(float alpha, char c);
@@ -87,7 +85,6 @@ void			ft_mlx_pixel_put(t_img image, int x, int y, int color);
 void			ft_init_img(t_env *env);
 void			ft_put_img_to_window(t_env *env, int nb);
 void			ft_print_perso(t_env *env, int size);
-int				ft_find_color_mini_map(char c);
 int				red_cross(int key, void *param);
 int				deal_key(int key, void *param);
 void			ft_adjust_resolution(t_env *s);
@@ -95,30 +92,18 @@ int				resize_request(void *env);
 char			*ft_texture(t_env *s);
 int				ft_mlx_get_color(t_texture text, int x, int y);
 int				ft_find_x_text(t_env *env, t_wall *w, int or);
-
 char			*ft_check_zero(char **map, int i, int j, t_env *env);
 char			*control_map(char **map, t_env *env);
 float			ft_lim_alpha(float alpha);
 float			ft_dist(float x_w, float y_w, float x0, float y0);
-
-
 void			ft_save_bitmap(t_env *env);
 void			ft_fill_bmp(t_env *env, int fd);
 int				ft_create_image(t_env *env, int fd);
-
-
-
 int				key_press(int key, void *param);
-void			key_press_bonus(int key, t_env *env);
 int				key_release(int key, void *param);
-void			ft_arme(t_env *env, t_weapon weapon);
-t_weapon		ft_weapon(int a);
-t_weapon		ft_tir(int a);
-int				ft_which_weapons(int m);
 void			ft_print_all(t_env *env);
 t_key			ft_init_key(void);
 void			ft_up_down(t_env *env, int key);
-void			ft_jetpack(t_env *env);
 int				ft_init_struct2(t_env *env, char *error);
 void			ft_print_square(t_env *env, int x, int y, int size);
 void			ft_print_life(t_env *env);

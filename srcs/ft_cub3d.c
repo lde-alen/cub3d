@@ -6,13 +6,13 @@
 /*   By: lde-alen <lde-alen@student.42za>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:39:58 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/28 00:33:01 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 02:56:12 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_free(t_env *env)
+void	ft_america(t_env *env)
 {
 	int	i;
 
@@ -82,7 +82,7 @@ int		ft_init_struct2(t_env *env,  char *error)
 	error = ft_init_mlx(env);
 	if (error && error[0] == 'E')
 		return (ft_error(error));
-	ft_free(env);
+	ft_america(env);
 	return (0);
 }
 

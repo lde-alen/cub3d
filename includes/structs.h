@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: myvh <myvh@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lde-alen <lde-alen@student.42za>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 10:16:46 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/11 05:31:16 by myvh             ###   ########.fr       */
+/*   Updated: 2023/05/28 01:19:40 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,6 @@ typedef struct	s_text
 	float	pos;
 	float	d_y;
 }				t_text;
-
-typedef struct	s_weapon
-{
-	int		x_start;
-	int		x_end;
-	int		y_start;
-	int		y_end;
-}				t_weapon;
 
 typedef struct	s_dist
 {
@@ -126,7 +118,7 @@ typedef struct	s_env
 	int			size_x;
 	int			size_y;
 	int			*size_line;
-	t_texture	tex[5];
+	t_texture	tex[4];
 	t_key		key;
 }				t_env;
 

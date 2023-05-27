@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42za>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 16:35:06 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/28 00:31:52 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 02:56:18 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ char	*ft_init_mlx(t_env *s)
 	mlx_hook(s->mlx.win, 2, 1L << 0, key_press, (void *)s);
 	mlx_hook(s->mlx.win, 3, 1L << 1, key_release, (void *)s);
 	mlx_hook(s->mlx.win, 33, 1L << 0, red_cross, (void *)0);
-	mlx_hook(s->mlx.win, 9, 1L << 21, resize_request, (void *)s);
 	mlx_loop(s->mlx.mlx);
 	ft_quit_mlx(s);
 	return (NULL);
@@ -93,6 +92,6 @@ void	ft_quit_mlx(t_env *s)
 	mlx_destroy_image(s->mlx.mlx, s->mlx.img.img);
 	mlx_destroy_window(s->mlx.mlx, s->mlx.win);
 	free(s->mlx.mlx);
-	ft_free(s);
+	ft_america(s);
 	exit(0);
 }
