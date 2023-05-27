@@ -17,8 +17,8 @@ NAME			=		cub3d
 ## Directories
 LIBFT_DIR		=		libft/
 GNL_DIR			=		get_next_line/
-MLX_DIR			=		minilibx-linux/
-MLX_LIN_DIR			=		minilibx-linux/
+MLX_DIR			=		minilibx_opengl/
+MLX_LIN_DIR		=		minilibx-linux/
 SRCS_DIR		=		srcs/
 
 ## Archives
@@ -29,17 +29,17 @@ OBJS			=		$(SRCS:.c=.o)
 
 ## Files
 SRCS			=		srcs/ft_cub3d.c			\
-								srcs/ft_control_map.c	\
-								srcs/ft_cub3d_utils.c				\
-								srcs/ft_events.c	\
-								srcs/ft_fill_map.c						\
-								srcs/ft_find_wall.c\
-								srcs/ft_init.c\
-								srcs/ft_mlx.c\
-								srcs/ft_move.c\
-								srcs/ft_parse.c\
-								srcs/ft_print_wall.c\
-								srcs/ft_texture.c\
+						srcs/ft_control_map.c	\
+						srcs/ft_cub3d_utils.c	\
+						srcs/ft_events.c		\
+						srcs/ft_fill_map.c		\
+						srcs/ft_find_wall.c		\
+						srcs/ft_init.c			\
+						srcs/ft_mlx.c			\
+						srcs/ft_move.c			\
+						srcs/ft_parse.c			\
+						srcs/ft_print_wall.c	\
+						srcs/ft_texture.c		\
 
 
 
@@ -75,6 +75,8 @@ CC				=		gcc
 $(NAME)			:		$(OBJS)
 						@$(MAKE) -C ./libft
 						@$(MAKE) -C $(MLX_DIR)
+						@rm ./includes/mlx.h
+						@cp ./minilibx_opengl/mlx.h ./includes/mlx.h
 						@$(CC) $(MLX_COMPIL) $(FLAGS) $(INCLUDES) $(OBJS) $(MLX_DIR)/$(MLX_NAME) $(LIBFT_DIR)/$(LIBFT_NAME) -o $(NAME)
 
 ## Calls Name
