@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "libft.h": "c",
-        "stdlib.h": "c",
-        "random": "cpp",
-        "get_next_line.h": "c",
-        "mlx_int.h": "c"
-    }
-}

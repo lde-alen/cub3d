@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: myvh <myvh@student.42.fr>                  +#+  +:+       +#+         #
+#    By: lde-alen <lde-alen@student.42za>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/02/12 08:48:30 by lde-alen          #+#    #+#              #
-#    Updated: 2023/05/11 05:36:55 by myvh             ###   ########.fr        #
+#    Created: 2023/05/27 16:35:14 by lde-alen          #+#    #+#              #
+#    Updated: 2023/05/27 16:54:31 by lde-alen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME			=		cub3d
 LIBFT_DIR		=		libft/
 GNL_DIR			=		get_next_line/
 MLX_DIR			=		minilibx_opengl/
-MLX_LIN_DIR		=		minilibx-linux/
+MLX_LIN_DIR		=		minilibx_linux/
 SRCS_DIR		=		srcs/
 
 ## Archives
@@ -75,8 +75,6 @@ CC				=		gcc
 $(NAME)			:		$(OBJS)
 						@$(MAKE) -C ./libft
 						@$(MAKE) -C $(MLX_DIR)
-						@rm ./includes/mlx.h
-						@cp ./minilibx_opengl/mlx.h ./includes/mlx.h
 						@$(CC) $(MLX_COMPIL) $(FLAGS) $(INCLUDES) $(OBJS) $(MLX_DIR)/$(MLX_NAME) $(LIBFT_DIR)/$(LIBFT_NAME) -o $(NAME)
 
 ## Calls Name
