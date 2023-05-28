@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_move.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmassarw <mmassarw@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:40:34 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/28 09:26:02 by mmassarw         ###   ########.fr       */
+/*   Updated: 2023/05/28 11:41:48 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ void		ft_incr_pos_lat(t_env *env, char sign)
 
 void		ft_move(t_env *env)
 {
-	// float	*dist;
-
 	if (env->key.w)
 		env->pos = ft_incr_pos(env, 1);
 	if (env->key.s)
@@ -45,6 +43,12 @@ void		ft_move(t_env *env)
 		ft_incr_pos_lat(env, 'l');
 	if (env->key.d)
 		ft_incr_pos_lat(env, 'r');
+	if (env->key.u)
+		if (env->init.fov < 160)
+			env->init.fov += 5;
+	if (env->key.v)
+		if (env->init.fov > 20)
+			env->init.fov -= 5;
 	ft_reset_opti(env->mlx.img.opti);
 	raycasting(env);
 	

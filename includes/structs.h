@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmassarw <mmassarw@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 10:16:46 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/28 08:55:57 by mmassarw         ###   ########.fr       */
+/*   Updated: 2023/05/28 11:32:16 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ typedef struct	s_key
 	short		a;
 	short		l;
 	short		r;
+	short		u;
+	short		v;
 }				t_key;
 
 typedef struct s_vert

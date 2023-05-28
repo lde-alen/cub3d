@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmassarw <mmassarw@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 06:04:56 by mmassarw          #+#    #+#             */
-/*   Updated: 2023/05/28 09:27:47 by mmassarw         ###   ########.fr       */
+/*   Updated: 2023/05/28 11:44:12 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	raycasting(t_env *data)
 	int			i[2];
 	t_rayutils	rayutils;
 
-	rayutils.angle = data->pos.dir - (FOV / 2) + 1e-6;
+	rayutils.angle = data->pos.dir - (data->init.fov / 2) + 1e-6;
 	fill_area(data, (t_vert) {0,0}, (t_vert) {WIDTH, HEIGHT/2}, data->init.ceiling);
 	fill_area(data, (t_vert) {0,HEIGHT/2}, (t_vert) {WIDTH, HEIGHT}, data->init.floor);
 	ft_bzero(i, sizeof(int) * 2);
@@ -153,9 +153,9 @@ void	raycasting(t_env *data)
 			}
 		}
 		rays[i[0]].depth *= cos((data->pos.dir - rayutils.angle) * DTOR);
-		rays[i[0]].proj_height = ((double) (WIDTH / 2) / (tan((double) FOV * DTOR / 2))) / ((rays[i[0]].depth + 1e-6)/MAP_SCALE);
+		rays[i[0]].proj_height = ((double) (WIDTH / 2) / (tan((double) data->init.fov * DTOR / 2))) / ((rays[i[0]].depth + 1e-6)/MAP_SCALE);
 
 		render_ray(rays[i[0]], data, i[0]);
-		rayutils.angle += ((double) FOV / (double) WIDTH);
+		rayutils.angle += ((double) data->init.fov / (double) WIDTH);
 	}
 }

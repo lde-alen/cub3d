@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mlx.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmassarw <mmassarw@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 16:35:06 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/28 08:34:05 by mmassarw         ###   ########.fr       */
+/*   Updated: 2023/05/28 11:23:56 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_init_mlx(t_env *s)
 	mlx_put_image_to_window(s->mlx.mlx, s->mlx.win, s->mlx.img.img, 0, 0);
 	mlx_hook(s->mlx.win, 2, 1L << 0, key_press, (void *)s);
 	mlx_hook(s->mlx.win, 3, 1L << 1, key_release, (void *)s);
-	mlx_hook(s->mlx.win, 33, 1L << 0, red_cross, (void *)0);
+	mlx_hook(s->mlx.win, 17, 0, red_cross, (void *)0);
 	mlx_loop(s->mlx.mlx);
 	ft_quit_mlx(s);
 	return (NULL);

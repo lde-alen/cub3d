@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmassarw <mmassarw@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:40:27 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/28 08:34:45 by mmassarw         ###   ########.fr       */
+/*   Updated: 2023/05/28 11:35:49 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,7 @@ t_key		ft_init_key(void)
 	key.w = 0;
 	key.r = 0;
 	key.l = 0;
+	key.u = 0;
+	key.v = 0;
 	return (key);
 }
