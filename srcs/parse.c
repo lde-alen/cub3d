@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse.c                                         :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 13:41:31 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/28 17:01:34 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 17:30:11 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	ft_convert_color(char *str)
+int	convert_color(char *str)
 {
 	char	**s;
 	int		color;
@@ -22,7 +22,7 @@ int	ft_convert_color(char *str)
 	s = ft_split_str(str, " ,");
 	if (s[4] != NULL || ft_strslen(s) != 4 || ft_strlen(s[0]) != 1)
 		return (-1);
-	if (ft_check_color(ft_atoi(s[1]), ft_atoi(s[2]), ft_atoi(s[3])) == -1)
+	if (check_color(ft_atoi(s[1]), ft_atoi(s[2]), ft_atoi(s[3])) == -1)
 		return (-1);
 	color = (ft_atoi(s[1]) * 256 + ft_atoi(s[2])) * 256 + ft_atoi(s[3]);
 	while (s[i])
@@ -34,11 +34,11 @@ int	ft_convert_color(char *str)
 	return (color);
 }
 
-char	*ft_parse_color(t_map *init, char *line)
+char	*parse_color(t_map *init, char *line)
 {
 	int	color;
 
-	color = ft_convert_color(line);
+	color = convert_color(line);
 	if (color == -1)
 		return ("Error\nBad character in color\n");
 	if (line[0] == 'F')
@@ -48,7 +48,7 @@ char	*ft_parse_color(t_map *init, char *line)
 	return (NULL);
 }
 
-char	*ft_parse_texture(char *line, t_map *map)
+char	*parse_texture(char *line, t_map *map)
 {
 	if (line[0] == 'N' && line[1] == 'O')
 		map->texture[0] = ft_strtrim_path(&line[3], " ");
@@ -63,7 +63,7 @@ char	*ft_parse_texture(char *line, t_map *map)
 	return (NULL);
 }
 
-char	*ft_parse(t_map *map_def, int *fd)
+char	*parse(t_map *map_def, int *fd)
 {
 	int			ret;
 	char		*l;
@@ -79,9 +79,9 @@ char	*ft_parse(t_map *map_def, int *fd)
 		while (l && l[i] == ' ')
 			i++;
 		if (l[i] == 'N' || l[i] == 'S' || l[i] == 'W' || l[i] == 'E')
-			error = ft_parse_texture(&l[i], map_def);
+			error = parse_texture(&l[i], map_def);
 		else if (l[i] == 'F' || l[i] == 'C')
-			error = ft_parse_color(map_def, l + i);
+			error = parse_color(map_def, l + i);
 		else if (l[i] == '1')
 			ret = 0;
 		else if (l [i] != '\0')

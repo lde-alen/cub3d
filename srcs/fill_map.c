@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fill_map.c                                      :+:      :+:    :+:   */
+/*   fill_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 17:03:41 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/28 17:03:42 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 17:29:16 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	ft_size_map(int fd)
+int	size_map(int fd)
 {
 	int		ret;
 	int		size;
@@ -40,7 +40,7 @@ int	ft_size_map(int fd)
 	return (size);
 }
 
-char	*ft_fill_map(char *file, char **map, int size)
+char	*fill_map(char *file, char **map, int size)
 {
 	int		fd;
 	char	*line;
@@ -61,10 +61,10 @@ char	*ft_fill_map(char *file, char **map, int size)
 		while (line[i] == ' ')
 			i++;
 	}
-	return (ft_fill_line(fd, line, map, size));
+	return (fill_line(fd, line, map, size));
 }
 
-char	*ft_fill_line(int fd, char *line, char **map, int size)
+char	*fill_line(int fd, char *line, char **map, int size)
 {
 	int		j;
 	int		ret;
@@ -89,7 +89,7 @@ char	*ft_fill_line(int fd, char *line, char **map, int size)
 	return (NULL);
 }
 
-int	ft_orientation(char c)
+int	orientation(char c)
 {
 	if (c == 'N')
 		return (90);
@@ -103,7 +103,7 @@ int	ft_orientation(char c)
 		return (-1);
 }
 
-char	*ft_check_zero(char **map, int i, int j, t_env *env)
+char	*check_zero(char **map, int i, int j, t_env *env)
 {
 	if (j - 1 < 0 || i - 1 < 0 || env->size_x == 0 || env->size_y == 0)
 		return ("Error\nBad map.");

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mmassarw <mmassarw@student.42.fr>          +#+  +:+       +#+         #
+#    By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/27 16:35:14 by lde-alen          #+#    #+#              #
-#    Updated: 2023/05/28 14:49:12 by mmassarw         ###   ########.fr        #
+#    Updated: 2023/05/28 17:32:37 by lde-alen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,18 +28,18 @@ MLX_NAME		=		libmlx.a
 OBJS			=		$(SRCS:.c=.o)
 
 ## Files
-SRCS			=		srcs/ft_cub3d.c			\
-						srcs/ft_control_map.c	\
-						srcs/ft_cub3d_utils.c	\
-						srcs/ft_events.c		\
-						srcs/ft_fill_map.c		\
-						srcs/ft_init.c			\
-						srcs/ft_mlx.c			\
-						srcs/ft_move.c			\
-						srcs/ft_parse.c			\
-						srcs/ft_texture.c		\
-						srcs/raycasting/raycasting.c\
-						srcs/raycasting/raycasting_utils.c\
+SRCS			=		srcs/cub3d.c						\
+						srcs/control_map.c					\
+						srcs/cub3d_utils.c					\
+						srcs/events.c						\
+						srcs/fill_map.c						\
+						srcs/init.c							\
+						srcs/mlx.c							\
+						srcs/parse.c						\
+						srcs/texture.c						\
+						srcs/move.c							\
+						srcs/raycasting/raycasting.c		\
+						srcs/raycasting/raycasting_utils.c	\
 
 
 
@@ -48,7 +48,7 @@ SRCS			=		srcs/ft_cub3d.c			\
 UNAME 			:=		$(shell uname)
 
 ## Flags
-FLAGS			=		-Wall -Wextra -Werror -g3
+FLAGS			=		-Wall -Wextra -Werror
 
 ## If the OS is Linux, then the MLX library is compiled with the following flags
 ## otherwise, it is compiled with the MacOS flags

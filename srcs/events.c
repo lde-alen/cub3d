@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_events.c                                        :+:      :+:    :+:   */
+/*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 16:47:56 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/28 13:33:18 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 17:24:29 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ int	key_press(int key, void *param)
 	if (key == ARROW_RIGHT)
 		env->key.r = 1;
 	if (key == KEY_ESC)
-		ft_quit_mlx(env);
-	ft_move(env);
+		quit_mlx(env);
+	move(env);
 	return (key);
 }
 
@@ -73,7 +73,7 @@ int	key_release(int key, void *param)
 	if (key == ARROW_RIGHT)
 		env->key.r = 0;
 	if (key == KEY_ESC)
-		ft_quit_mlx(env);
-	ft_move(env);
+		quit_mlx(env);
+	move(env);
 	return (key);
 }

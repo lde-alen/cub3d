@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_move.c                                          :+:      :+:    :+:   */
+/*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 17:04:02 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/28 17:04:03 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 17:27:14 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_incr_pos_lat(t_env *env, char sign)
+void	incr_pos_lat(t_env *env, char sign)
 {
 	float	ang;
 
@@ -29,32 +29,32 @@ void	ft_incr_pos_lat(t_env *env, char sign)
 		env->pos.y += env->pos.speed * sin(ang);
 }
 
-void	ft_move(t_env *env)
+void	move(t_env *env)
 {
 	if (env->key.w)
-		env->pos = ft_incr_pos(env, 1);
+		env->pos = incr_pos(env, 1);
 	if (env->key.s)
-		env->pos = ft_incr_pos(env, -1);
+		env->pos = incr_pos(env, -1);
 	if (env->key.l)
-		env->pos.dir = ft_incr_ori(env->pos, 'l');
+		env->pos.dir = incr_ori(env->pos, 'l');
 	if (env->key.r)
-		env->pos.dir = ft_incr_ori(env->pos, 'r');
+		env->pos.dir = incr_ori(env->pos, 'r');
 	if (env->key.a)
-		ft_incr_pos_lat(env, 'l');
+		incr_pos_lat(env, 'l');
 	if (env->key.d)
-		ft_incr_pos_lat(env, 'r');
+		incr_pos_lat(env, 'r');
 	if (env->key.u)
 		if (env->init.fov < 160)
 			env->init.fov += 5;
 	if (env->key.v)
 		if (env->init.fov > 20)
 			env->init.fov -= 5;
-	ft_reset_opti(env->mlx.img.opti);
+	reset_opti(env->mlx.img.opti);
 	raycasting(env);
 	mlx_put_image_to_window(env->mlx.mlx, env->mlx.win, env->mlx.img.img, 0, 0);
 }
 
-int	ft_incr_ori(t_position pos, char dir)
+int	incr_ori(t_position pos, char dir)
 {
 	int	retur;
 	int	incr;
@@ -71,7 +71,7 @@ int	ft_incr_ori(t_position pos, char dir)
 	return (retur);
 }
 
-t_position	ft_incr_pos(t_env *env, int sign)
+t_position	incr_pos(t_env *env, int sign)
 {
 	env->pos.speed = 0.1;
 	env->pos.x += sign * env->pos.speed * cos(env->pos.dir * DTOR);
@@ -83,7 +83,7 @@ t_position	ft_incr_pos(t_env *env, int sign)
 	return (env->pos);
 }
 
-void	ft_reset_opti(char **opti)
+void	reset_opti(char **opti)
 {
 	int	i;
 	int	j;

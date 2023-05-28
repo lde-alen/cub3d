@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_control_map.c                                   :+:      :+:    :+:   */
+/*   control_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 17:10:27 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/28 17:10:28 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 17:24:10 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_control_map(t_env *s)
 			{
 				s->pos.x = i + 0.5;
 				s->pos.y = j + 0.5;
-				s->pos.dir = ft_orientation(s->map[j][i]);
+				s->pos.dir = orientation(s->map[j][i]);
 				s->map[j][i] = '0';
 				s->pos.mk++;
 			}
@@ -55,7 +55,7 @@ char	*control_map(char **map, t_env *env)
 		{
 			if (map[j][i] == '0')
 			{
-				error = ft_check_zero(map, i, j, env);
+				error = check_zero(map, i, j, env);
 				if (error != NULL)
 					return (error);
 			}
