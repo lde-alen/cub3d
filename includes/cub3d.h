@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42za>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 10:12:26 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/28 04:16:35 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 04:24:00 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@
  **/
 
 int				ft_check_color(int r, int g, int b);
-void			ft_mlx_pixel_put_sprite(t_img image, int x, int y, int color);
 void			ft_reset_opti(char **opti);
 int				ft_error(char *error);
 int				ft_init_struct(char *file);
@@ -93,7 +92,6 @@ char			*ft_check_zero(char **map, int i, int j, t_env *env);
 char			*control_map(char **map, t_env *env);
 float			ft_lim_alpha(float alpha);
 float			ft_dist(float x_w, float y_w, float x0, float y0);
-
 int				ft_create_image(t_env *env, int fd);
 int				key_press(int key, void *param);
 int				key_release(int key, void *param);
