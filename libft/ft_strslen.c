@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strslen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: myvh <myvh@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:47:19 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/09 20:47:21 by myvh             ###   ########.fr       */
+/*   Updated: 2023/05/28 15:08:16 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strslen(char **strs)
+int	ft_strslen(char **strs)
 {
 	int	i;
 

@@ -1,9 +1,5 @@
-R 500 500
-
 F 94, 93, 91
 C 1, 12, 36
-
-S textures/sprite_3.xpm
 
 NO textures/purplestone.xpm
 SO textures/wall_3.xpm

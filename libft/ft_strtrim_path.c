@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim_path.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: myvh <myvh@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:47:04 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/09 21:21:15 by myvh             ###   ########.fr       */
+/*   Updated: 2023/05/28 15:08:02 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		space(const char *c, int j, char const *set)
+static int	space(const char *c, int j, char const *set)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ static int		space(const char *c, int j, char const *set)
 	return (0);
 }
 
-char			*ft_strtrim_path(char const *s1, char const *set)
+char	*ft_strtrim_path(char const *s1, char const *set)
 {
 	int		i;
 	int		size;
@@ -42,7 +42,8 @@ char			*ft_strtrim_path(char const *s1, char const *set)
 		j++;
 	if (i == size)
 		return (ft_strnew(0));
-	if (!(str = ft_substr(s1, i, size - i - j + 1)))
+	str = ft_substr(s1, i, size - i - j + 1);
+	if (!str)
 		return (NULL);
 	i = -1;
 	while (str[++i])

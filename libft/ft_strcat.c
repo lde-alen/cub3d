@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: myvh <myvh@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:48:28 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/09 21:03:49 by myvh             ###   ########.fr       */
+/*   Updated: 2023/05/28 15:09:17 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strcat(char *s1, const char *s2)
 {
-	int size_s1;
-	int i;
+	int	size_s1;
+	int	i;
 
 	i = 0;
 	size_s1 = ft_strlen(s1);

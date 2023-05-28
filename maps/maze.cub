@@ -1,9 +1,5 @@
-R 500 500
-
 F 94, 93, 91
 C 1, 12, 36
-
-S textures/wall_3.xpm
 
 NO                                              textures/wall_3.xpm
 SO textures/wall_3.xpm

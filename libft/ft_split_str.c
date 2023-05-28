@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split_str.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: myvh <myvh@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:48:33 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/09 20:48:37 by myvh             ###   ########.fr       */
+/*   Updated: 2023/05/28 15:13:14 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-static int		ft_char_sep(char c, char *charset)
+static int	ft_char_sep(char c, char *charset)
 {
 	int	i;
 
@@ -26,10 +26,10 @@ static int		ft_char_sep(char c, char *charset)
 	return (0);
 }
 
-static int		ft_strslen(char *str, char *charset)
+static int	ft_strslen(char *str, char *charset)
 {
 	int	i;
-	int x;
+	int	x;
 
 	i = 0;
 	x = 0;
@@ -47,7 +47,7 @@ static int		ft_strslen(char *str, char *charset)
 	return (x);
 }
 
-static int		ft_strlen_word(int i, char *str, char *charset)
+static int	ft_strlen_word(int i, char *str, char *charset)
 {
 	int	len_word;
 
@@ -60,7 +60,7 @@ static int		ft_strlen_word(int i, char *str, char *charset)
 	return (len_word);
 }
 
-static char		*ft_remp(int size_word, char *str, char *strs, int i)
+static char	*ft_remp(int size_word, char *str, char *strs, int i)
 {
 	int	j;
 
@@ -75,7 +75,7 @@ static char		*ft_remp(int size_word, char *str, char *strs, int i)
 	return (strs);
 }
 
-char			**ft_split_str(char *str, char *charset)
+char	**ft_split_str(char *str, char *charset)
 {
 	int		nb_word;
 	char	**strs;
@@ -85,19 +85,20 @@ char			**ft_split_str(char *str, char *charset)
 
 	i = 0;
 	nb_word = ft_strslen(str, charset);
-	l = 0;
-	if (!(strs = (char **)malloc((nb_word + 1) * sizeof(char*))))
+	l = -1;
+	strs = (char **)malloc((nb_word + 1) * sizeof(char *));
+	if (!strs)
 		return (NULL);
-	while (l < nb_word)
+	while (++l < nb_word)
 	{
 		while (ft_char_sep(str[i], charset))
 			i++;
 		size_word = ft_strlen_word(i, str, charset);
-		if (!(strs[l] = (char *)malloc(size_word * sizeof(char) + 1)))
+		strs[l] = (char *)malloc(size_word * sizeof(char) + 1);
+		if (!strs[l])
 			return (NULL);
 		strs[l] = ft_remp(size_word, str, strs[l], i);
 		i += size_word;
-		l++;
 	}
 	strs[l] = NULL;
 	return (strs);
