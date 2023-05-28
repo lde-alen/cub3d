@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42za>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 10:12:26 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/28 04:24:00 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 04:25:50 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,5 @@ t_key			ft_init_key(void);
 int				ft_init_struct2(t_env *env, char *error);
 void			ft_print_square(t_env *env, int x, int y, int size);
 int				ft_find_size_x(t_env *env);
+
 #endif
