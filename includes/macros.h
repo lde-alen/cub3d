@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   macros.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-alen <lde-alen@student.42za>           +#+  +:+       +#+        */
+/*   By: mmassarw <mmassarw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 16:50:56 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/28 04:12:04 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 09:27:45 by mmassarw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # endif
 
 # ifndef FOV
-#  define FOV 140
+#  define FOV 60
 # endif
 
 # ifndef MAP_SCALE
@@ -27,11 +27,11 @@
 # endif
 
 # ifndef MAX_DEPTH
-#  define MAX_DEPTH 20
+#  define MAX_DEPTH 100
 # endif
 
-# define WIDTH 1280
-# define HEIGHT 800
+# define WIDTH 1920
+# define HEIGHT 1080
 # define DTOR 0.0174532925199
 
 /*

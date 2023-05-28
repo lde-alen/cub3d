@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
+/*   By: mmassarw <mmassarw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:40:27 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/28 05:00:51 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 08:34:45 by mmassarw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ t_map		ft_init_map_struct(void)
 {
 	t_map	map;
 
-	map.x_res = WIDTH;
-	map.y_res = HEIGHT;
 	map.fov = FOV;
 	map.floor = -1;
 	map.ceiling = -1;
@@ -32,7 +30,6 @@ t_position	ft_init_position(void)
 	pos.x = 0;
 	pos.y = 0;
 	pos.dir = 0;
-	pos.z = 2;
 	pos.mk = 0;
 	return (pos);
 }

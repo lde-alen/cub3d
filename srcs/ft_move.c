@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_move.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
+/*   By: mmassarw <mmassarw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:40:34 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/28 05:10:54 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 09:26:02 by mmassarw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void		ft_incr_pos_lat(t_env *env, char sign)
 	float ang;
 
 	if (sign == 'l')
-		ang = env->pos.dir + PI / 2;
+		ang = env->pos.dir * DTOR + PI/2;
 	if (sign == 'r')
-		ang = env->pos.dir - PI / 2;
+		ang = env->pos.dir * DTOR - PI/2;
 	env->pos.speed = 0.1;
 	env->pos.x += env->pos.speed * cos(ang);
 	env->pos.y -= env->pos.speed * sin(ang);
@@ -46,38 +46,37 @@ void		ft_move(t_env *env)
 	if (env->key.d)
 		ft_incr_pos_lat(env, 'r');
 	ft_reset_opti(env->mlx.img.opti);
-	//raycasting to be here
-	// if (!(dist = ft_printf_wall(env)))
-	// 	ft_quit_mlx(env);
+	raycasting(env);
+	
 	mlx_put_image_to_window(env->mlx.mlx, env->mlx.win, env->mlx.img.img, 0, 0);
 }
 
-float		ft_incr_ori(t_position pos, char dir)
+int		ft_incr_ori(t_position pos, char dir)
 {
-	float	retur;
-	float	incr;
+	int	retur;
+	int	incr;
 
-	incr = PI / 32;
+	incr = 5;
 	if (dir == 'l')
 		retur = pos.dir + incr;
 	else
 		retur = pos.dir - incr;
-	if (retur > 2 * PI)
-		retur -= 2 * PI;
+	if (retur > 360)
+		retur -= 360;
 	else if (retur <= 0)
-		retur += 2 * PI;
+		retur += 360;
 	return (retur);
 }
 
 t_position	ft_incr_pos(t_env *env, int sign)
 {
 	env->pos.speed = 0.1;
-	env->pos.x += sign * env->pos.speed * cos(env->pos.dir);
-	env->pos.y -= sign * env->pos.speed * sin(env->pos.dir);
+	env->pos.x += sign * env->pos.speed * cos(env->pos.dir * DTOR);
+	env->pos.y -= sign * env->pos.speed * sin(env->pos.dir * DTOR);
 	if (env->pos.x < 1.25 || env->pos.x > env->size_x - 1.25)
-		env->pos.x -= sign * env->pos.speed * cos(env->pos.dir);
+		env->pos.x -= sign * env->pos.speed * cos(env->pos.dir * DTOR);
 	if (env->pos.y < 1.25 || env->pos.y > env->size_y - 1.25)
-		env->pos.y += sign * env->pos.speed * sin(env->pos.dir);
+		env->pos.y += sign * env->pos.speed * sin(env->pos.dir * DTOR);
 	return (env->pos);
 }
 

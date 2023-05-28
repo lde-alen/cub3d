@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mlx.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
+/*   By: mmassarw <mmassarw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 16:35:06 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/28 05:09:56 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 08:34:05 by mmassarw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ char	*ft_init_mlx(t_env *s)
 	if (error != NULL)
 		return (error);
 	ft_init_img(s);
-	//raycasting starts
-	s->mlx.win = mlx_new_window(s->mlx.mlx, s->init.x_res, s->init.y_res, "Cub3D");
+	raycasting(s); 
+	s->mlx.win = mlx_new_window(s->mlx.mlx, WIDTH, HEIGHT, "Cub3D");
 	mlx_put_image_to_window(s->mlx.mlx, s->mlx.win, s->mlx.img.img, 0, 0);
 	mlx_hook(s->mlx.win, 2, 1L << 0, key_press, (void *)s);
 	mlx_hook(s->mlx.win, 3, 1L << 1, key_release, (void *)s);
@@ -39,19 +39,19 @@ void	ft_init_img(t_env *s)
 
 	j = -1;
 	s->mlx.img.img = mlx_new_image(s->mlx.mlx,
-		s->init.x_res, s->init.y_res);
+		WIDTH, HEIGHT);
 	if (s->mlx.img.img == NULL)
 		ft_quit_mlx(s);
 	s->mlx.img.addr = mlx_get_data_addr(s->mlx.img.img,
 		&s->mlx.img.bpp, &s->mlx.img.line_len, &s->mlx.img.end);
-	if (!(s->mlx.img.opti = malloc((s->init.y_res + 1) * sizeof(char *))))
+	if (!(s->mlx.img.opti = malloc((HEIGHT + 1) * sizeof(char *))))
 		ft_quit_mlx(s);
-	while (++j < s->init.y_res)
+	while (++j < HEIGHT)
 	{
 		i = -1;
-		if (!(s->mlx.img.opti[j] = malloc((s->init.x_res + 1) * sizeof(char))))
+		if (!(s->mlx.img.opti[j] = malloc((WIDTH + 1) * sizeof(char))))
 			ft_quit_mlx(s);
-		while (++i < s->init.x_res)
+		while (++i < WIDTH)
 			s->mlx.img.opti[j][i] = '0';
 		s->mlx.img.opti[j][i] = '\0';
 	}
@@ -70,4 +70,16 @@ void	ft_quit_mlx(t_env *s)
 	free(s->mlx.mlx);
 	ft_america(s);
 	exit(0);
+}
+
+void	ft_nextframe(t_env *data)
+{
+	mlx_destroy_image(data->mlx.mlx, data->mlx.img.img);
+	mlx_clear_window(data->mlx.mlx, data->mlx.win);
+	data->mlx.img.img = mlx_new_image(data->mlx.mlx, WIDTH, HEIGHT);
+	data->mlx.img.addr = mlx_get_data_addr(data->mlx.img.img,\
+ &data->mlx.img.bpp, &data->mlx.img.line_len, &data->mlx.img.end);
+	raycasting(data);
+	mlx_put_image_to_window(data->mlx.mlx, data->mlx.win,\
+ data->mlx.img.img, 0, 0);
 }

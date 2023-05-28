@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
+/*   By: mmassarw <mmassarw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 10:12:26 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/28 05:01:56 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 07:53:59 by mmassarw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,18 +54,12 @@ char			**ft_init_map(int fd, char *file, int *size);
 t_position		ft_init_position(void);
 char			*ft_control_map(t_env *env);
 int				ft_size_map(int fd);
-t_wall			*ft_distance_wall(t_env *env, float alpha);
-t_wall			*ft_find_wall(t_env *env, float alpha, int x_r, int y_r);
-t_wall			*ft_fill_wall_struct(char type, float x, float y, t_wall *w);
 int 			ft_orientation(char c);
-t_dist			*ft_init_dist(t_env *env, float alpha);
-float			ft_init_pos(float pos);
 void			ft_print_map(t_env *env);
 void			ft_move(t_env *env);
 t_position		ft_incr_pos(t_env *env, int incr);
-float			ft_incr_ori(t_position pos, char dir);
+int			ft_incr_ori(t_position pos, char dir);
 void			ft_quit_mlx(t_env *env);
-void			ft_mlx_pixel_put(t_img image, int x, int y, int color);
 void			ft_init_img(t_env *env);
 void			ft_put_img_to_window(t_env *env, int nb);
 void			ft_print_perso(t_env *env, int size);
@@ -77,7 +71,6 @@ char			*ft_texture(t_env *s);
 int				ft_mlx_get_color(t_texture text, int x, int y);
 char			*ft_check_zero(char **map, int i, int j, t_env *env);
 char			*control_map(char **map, t_env *env);
-float			ft_dist(float x_w, float y_w, float x0, float y0);
 int				ft_create_image(t_env *env, int fd);
 int				key_press(int key, void *param);
 int				key_release(int key, void *param);
@@ -85,5 +78,7 @@ t_key			ft_init_key(void);
 int				ft_init_struct2(t_env *env, char *error);
 void			ft_print_square(t_env *env, int x, int y, int size);
 int				ft_find_size_x(t_env *env);
+void			pixel_put(t_env *data, t_vert pos, int color);
+void			raycasting(t_env *data);
 
 #endif

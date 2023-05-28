@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_texture.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-alen <lde-alen@student.42za>           +#+  +:+       +#+        */
+/*   By: mmassarw <mmassarw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:41:55 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/28 04:14:04 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 09:28:10 by mmassarw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,12 @@ int		ft_mlx_get_color(t_texture text, int x, int y)
 	return (color);
 }
 
-void	ft_mlx_pixel_put(t_img image, int x, int y, int color)
+void	pixel_put(t_env *data, t_vert pos, int color)
 {
-	char	*dst;
+	char	*pixel;
 
-	if (image.opti[y][x] == '0')
-	{
-		dst = image.addr + (y * image.line_len + x * (image.bpp / 8));
-		*(unsigned int*)dst = color;
-		image.opti[y][x] = '1';
-	}
+	if (pos.y < 0 || pos.y >= HEIGHT || pos.x < 0 || pos.x >= WIDTH)
+		return ;
+	pixel = data->mlx.img.addr + (pos.y * data->mlx.img.line_len + pos.x * (data->mlx.img.bpp / 8));
+	*(unsigned int *) pixel = color;
 }
