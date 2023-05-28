@@ -3,10 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
+/*   By: mmassarw <mmassarw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
+<<<<<<< HEAD
 /*   Created: 2023/05/28 14:49:03 by lde-alen          #+#    #+#             */
 /*   Updated: 2023/05/28 14:50:15 by lde-alen         ###   ########.fr       */
+=======
+/*   Created: 2023/02/12 10:16:46 by lde-alen          #+#    #+#             */
+/*   Updated: 2023/05/28 13:32:39 by mmassarw         ###   ########.fr       */
+>>>>>>> origin/goonery
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,24 +93,28 @@ typedef struct s_ray
 	double			texture_x;
 	double			depth;
 	double			proj_height;
-	double			offset;
 }	t_ray;
 
-typedef struct s_rayutils
+typedef struct s_utlpls
 {
-	double	angle;
-	double	sin_angle;
-	double	cos_angle;
-	double	horizental_depth;
-	double	vertical_depth;
-	double	horizental_wall;
-	double	vertical_wall;
 	double	edge;
-	double	delta_x;
-	double	delta_y;
-	double	delta_depth;
-	t_vert	check_vert;
-}	t_rayutils;
+	double	dmain;
+}	t_utlpls;
+
+typedef struct s_rutl
+{
+	double		a;
+	double		sin_a;
+	double		cos_a;
+	double		hor_depth;
+	double		ver_depth;
+	double		hor_wl;
+	double		ver_wl;
+	double		dothr;
+	double		ddepth;
+	t_vert		chk;
+	t_utlpls	xtra;
+}	t_rutl;
 
 typedef struct s_env
 {

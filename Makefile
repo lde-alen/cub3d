@@ -6,7 +6,7 @@
 #    By: mmassarw <mmassarw@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/27 16:35:14 by lde-alen          #+#    #+#              #
-#    Updated: 2023/05/28 06:00:34 by mmassarw         ###   ########.fr        #
+#    Updated: 2023/05/28 14:49:12 by mmassarw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,8 @@ SRCS			=		srcs/ft_cub3d.c			\
 						srcs/ft_move.c			\
 						srcs/ft_parse.c			\
 						srcs/ft_texture.c		\
-						srcs/raycasting/raycasting.c		\
+						srcs/raycasting/raycasting.c\
+						srcs/raycasting/raycasting_utils.c\
 
 
 

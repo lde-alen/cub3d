@@ -5,8 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
+<<<<<<< HEAD
 /*   Created: 2023/05/28 14:45:59 by lde-alen          #+#    #+#             */
 /*   Updated: 2023/05/28 14:47:07 by lde-alen         ###   ########.fr       */
+=======
+/*   Created: 2023/02/12 10:12:26 by lde-alen          #+#    #+#             */
+/*   Updated: 2023/05/28 14:50:28 by mmassarw         ###   ########.fr       */
+>>>>>>> origin/goonery
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +84,8 @@ void			ft_print_square(t_env *env, int x, int y, int size);
 int				ft_find_size_x(t_env *env);
 void			pixel_put(t_env *data, t_vert pos, int color);
 void			raycasting(t_env *data);
+bool			check_hit(t_vert to_check, char **map);
+void			render_ray(t_ray ray, t_env *data, int idx);
+void			fill_area(t_env *data, t_vert top_left, t_vert bottom_right, int color);
 
 #endif
