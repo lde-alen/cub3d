@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-alen <lde-alen@student.42za>           +#+  +:+       +#+        */
+/*   By: mmassarw <mmassarw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 10:16:46 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/28 01:19:40 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 03:05:32 by mmassarw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,51 @@ typedef struct	s_key
 	short		r;
 }				t_key;
 
+typedef struct s_vert
+{
+	int			x;
+	int			y;
+}	t_vert;
+
+typedef struct s_player
+{
+	t_vert	player_pos;
+	t_vert	map_pos;
+	double	angle;
+}	t_player;
+
+enum e_texture
+{
+	NO,
+	SO,
+	WE,
+	EA,
+};
+
+typedef struct s_ray
+{
+	enum e_texture	texture;
+	double			texture_x;
+	double			depth;
+	double			proj_height;
+}	t_ray;
+
+typedef struct s_rayutils
+{
+	double	angle;
+	double	sin_angle;
+	double	cos_angle;
+	double	horizental_depth;
+	double	vertical_depth;
+	double	horizental_wall;
+	double	vertical_wall;
+	double	edge;
+	double	delta_x;
+	double	delta_y;
+	double	delta_depth;
+	t_vert	check_vert;
+}	t_rayutils;
+
 typedef struct	s_env
 {
 	t_mlx_ptr	mlx;
@@ -121,5 +166,6 @@ typedef struct	s_env
 	t_texture	tex[4];
 	t_key		key;
 }				t_env;
+
 
 #endif

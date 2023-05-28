@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   macros.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-alen <lde-alen@student.42za>           +#+  +:+       +#+        */
+/*   By: mmassarw <mmassarw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 16:50:56 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/28 00:28:04 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 04:07:19 by mmassarw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,22 @@
 # else
 #  include "../minilibx_opengl/mlx.h"
 # endif
+
+# ifndef FOV
+#  define FOV 140
+# endif
+
+# ifndef MAP_SCALE
+#  define MAP_SCALE 64
+# endif
+
+# ifndef MAX_DEPTH
+#  define MAX_DEPTH 20
+# endif
+
+# define WIDTH 1280
+# define HEIGHT 800
+# define DTOR 0.0174532925199
 
 /*
 	KEY Macraaazzzz for the keyboard and mouse both linux and macos

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: myvh <myvh@student.42.fr>                  +#+  +:+       +#+         #
+#    By: mmassarw <mmassarw@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/19 09:20:19 by lde-alen          #+#    #+#              #
-#    Updated: 2023/05/09 21:25:12 by myvh             ###   ########.fr        #
+#    Updated: 2023/05/28 04:08:19 by mmassarw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,6 +56,7 @@ SRCS	= 	ft_bzero.c			\
 			ft_strjoin_size.c\
 			ft_strcpy.c\
 			ft_strcmp.c\
+			ft_free.c\
 			
 SRCS_B	=	ft_lstnew.c			\
 			ft_lstadd_front.c	\

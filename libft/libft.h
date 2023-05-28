@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: myvh <myvh@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mmassarw <mmassarw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 09:21:31 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/09 21:24:21 by myvh             ###   ########.fr       */
+/*   Updated: 2023/05/28 02:58:52 by mmassarw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,6 @@ char			**ft_split_str(char *str, char *charset);
 float			ft_abs(float nb);
 int				ft_strslen(char **strs);
 char	*ft_strnew(size_t size);
+void	*ft_free(void *ptr);
 
 #endif
