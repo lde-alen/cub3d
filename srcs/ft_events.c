@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_events.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-alen <lde-alen@student.42za>           +#+  +:+       +#+        */
+/*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 16:47:56 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/27 16:48:04 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 05:09:29 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,19 +68,4 @@ int			key_release(int key, void *param)
 		ft_quit_mlx(env);
 	ft_move(env);
 	return (key);
-}
-
-int			resize_request(void *env)
-{
-	t_env	*s;
-	float	*dist;
-
-	s = (t_env *)env;
-	ft_reset_opti(s->mlx.img.opti);
-	if (!(dist = ft_printf_wall(env)))
-		ft_quit_mlx(env);
-	ft_surface_color(s);
-	free(dist);
-	mlx_put_image_to_window(s->mlx.mlx, s->mlx.win, s->mlx.img.img, 0, 0);
-	return (0);
 }

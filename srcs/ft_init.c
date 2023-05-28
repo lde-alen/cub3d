@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-alen <lde-alen@student.42za>           +#+  +:+       +#+        */
+/*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:40:27 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/28 04:20:22 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 05:00:51 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,17 +59,4 @@ t_key		ft_init_key(void)
 	key.r = 0;
 	key.l = 0;
 	return (key);
-}
-
-t_wall		*ft_init_wall(void)
-{
-	t_wall	*wall;
-
-	wall = malloc(sizeof(t_wall));
-	wall->wall = 0;
-	wall->x_wall = 0;
-	wall->y_wall = 0;
-	wall->orientation = 'N';
-	wall->dist = 10000;
-	return (wall);
 }

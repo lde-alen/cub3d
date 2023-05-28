@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_move.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: myvh <myvh@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:40:34 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/11 05:34:01 by myvh             ###   ########.fr       */
+/*   Updated: 2023/05/28 05:10:54 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void		ft_incr_pos_lat(t_env *env, char sign)
 
 void		ft_move(t_env *env)
 {
-	float	*dist;
+	// float	*dist;
 
 	if (env->key.w)
 		env->pos = ft_incr_pos(env, 1);
@@ -46,10 +46,9 @@ void		ft_move(t_env *env)
 	if (env->key.d)
 		ft_incr_pos_lat(env, 'r');
 	ft_reset_opti(env->mlx.img.opti);
-	if (!(dist = ft_printf_wall(env)))
-		ft_quit_mlx(env);
-	ft_surface_color(env);
-	free(dist);
+	//raycasting to be here
+	// if (!(dist = ft_printf_wall(env)))
+	// 	ft_quit_mlx(env);
 	mlx_put_image_to_window(env->mlx.mlx, env->mlx.win, env->mlx.img.img, 0, 0);
 }
 

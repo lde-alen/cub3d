@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-alen <lde-alen@student.42za>           +#+  +:+       +#+        */
+/*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 10:12:26 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/28 04:25:50 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 05:01:56 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,29 +54,17 @@ char			**ft_init_map(int fd, char *file, int *size);
 t_position		ft_init_position(void);
 char			*ft_control_map(t_env *env);
 int				ft_size_map(int fd);
-void			ft_surface_color(t_env *env);
-float			*ft_printf_wall(t_env *env);
-void			ft_print_column(t_wall *w, int x, t_env *env, float alpha);
-int				ft_find_color(t_wall *w);
 t_wall			*ft_distance_wall(t_env *env, float alpha);
 t_wall			*ft_find_wall(t_env *env, float alpha, int x_r, int y_r);
 t_wall			*ft_fill_wall_struct(char type, float x, float y, t_wall *w);
-t_wall			*ft_init_wall(void);
-float			ft_orientation(char c);
-int				it_is_a_wall(float x, float y, t_env *env);
-t_wall			*find_next_wall(t_env *env, t_wall *w, float delta_x, float delta_y);
+int 			ft_orientation(char c);
 t_dist			*ft_init_dist(t_env *env, float alpha);
 float			ft_init_pos(float pos);
-char			ft_orient_wall(float alpha, char c);
 void			ft_print_map(t_env *env);
 void			ft_move(t_env *env);
 t_position		ft_incr_pos(t_env *env, int incr);
 float			ft_incr_ori(t_position pos, char dir);
 void			ft_quit_mlx(t_env *env);
-void			ft_print_mini_map(t_env *env);
-t_wall			*ft_find_wall_dist(t_env *env, float alpha);
-t_wall			*check_vertical(t_env *env, float alpha);
-t_wall			*check_horizontal(t_env *env, float alpha);
 void			ft_mlx_pixel_put(t_img image, int x, int y, int color);
 void			ft_init_img(t_env *env);
 void			ft_put_img_to_window(t_env *env, int nb);
@@ -87,10 +75,8 @@ void			ft_adjust_resolution(t_env *s);
 int				resize_request(void *env);
 char			*ft_texture(t_env *s);
 int				ft_mlx_get_color(t_texture text, int x, int y);
-int				ft_find_x_text(t_env *env, t_wall *w, int or);
 char			*ft_check_zero(char **map, int i, int j, t_env *env);
 char			*control_map(char **map, t_env *env);
-float			ft_lim_alpha(float alpha);
 float			ft_dist(float x_w, float y_w, float x0, float y0);
 int				ft_create_image(t_env *env, int fd);
 int				key_press(int key, void *param);

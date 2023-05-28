@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mmassarw <mmassarw@student.42.fr>          +#+  +:+       +#+         #
+#    By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/27 16:35:14 by lde-alen          #+#    #+#              #
-#    Updated: 2023/05/28 03:00:44 by mmassarw         ###   ########.fr        #
+#    Updated: 2023/05/28 05:11:07 by lde-alen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,12 +33,10 @@ SRCS			=		srcs/ft_cub3d.c			\
 						srcs/ft_cub3d_utils.c	\
 						srcs/ft_events.c		\
 						srcs/ft_fill_map.c		\
-						srcs/ft_find_wall.c		\
 						srcs/ft_init.c			\
 						srcs/ft_mlx.c			\
 						srcs/ft_move.c			\
 						srcs/ft_parse.c			\
-						srcs/ft_print_wall.c	\
 						srcs/ft_texture.c		\
 
 
