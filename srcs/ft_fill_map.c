@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_fill_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: myvh <myvh@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lde-alen <lde-alen@student.42za>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:40:13 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/09 20:58:35 by myvh             ###   ########.fr       */
+/*   Updated: 2023/05/28 04:35:21 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,16 +91,16 @@ char		*ft_fill_line(int fd, char *line, char **map, int size)
 	return (NULL);
 }
 
-float		ft_orientation(char c)
+int		ft_orientation(char c)
 {
 	if (c == 'N')
-		return (PI / 2);
+		return (90);
 	else if (c == 'E')
 		return (0);
 	else if (c == 'S')
-		return (3 * PI / 2);
+		return (270);
 	else if (c == 'W')
-		return (PI);
+		return (180);
 	else
 		return (-1);
 }

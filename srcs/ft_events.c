@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_events.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-alen <lde-alen@student.42za>           +#+  +:+       +#+        */
+/*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 16:47:56 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/27 16:48:04 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 11:34:27 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,21 @@ int			key_press(int key, void *param)
 
 	env = (t_env *)param;
 	mlx_clear_window(env->mlx.mlx, env->mlx.win);
-	if (key == KEY_W || key == ARROW_UP)
+	if (key == KEY_W)
 		env->key.w = 1;
-	if (key == KEY_S || key == ARROW_DOWN)
+	if (key == KEY_S)
 		env->key.s = 1;
-	if (key == KEY_A || key == ARROW_LEFT)
+	if (key == KEY_A)
 		env->key.a = 1;
-	if (key == KEY_D || key == ARROW_RIGHT)
+	if (key == KEY_D)
 		env->key.d = 1;
-	if (key == KEY_L)
+	if (key == ARROW_UP)
+		env->key.u = 1;
+	if (key == ARROW_DOWN)
+		env->key.v = 1;
+	if (key == ARROW_LEFT)
 		env->key.l = 1;
-	if (key == KEY_R)
+	if (key == ARROW_RIGHT)
 		env->key.r = 1;
 	if (key == KEY_ESC)
 		ft_quit_mlx(env);
@@ -52,35 +56,24 @@ int			key_release(int key, void *param)
 
 	env = (t_env *)param;
 	mlx_clear_window(env->mlx.mlx, env->mlx.win);
-	if (key == KEY_W || key == ARROW_UP)
+	if (key == KEY_W)
 		env->key.w = 0;
-	if (key == KEY_S || key == ARROW_DOWN)
+	if (key == ARROW_UP)
+		env->key.u = 0;
+	if (key == ARROW_DOWN)
+		env->key.v = 0;
+	if (key == KEY_S)
 		env->key.s = 0;
-	if (key == KEY_A || key == ARROW_LEFT)
+	if (key == KEY_A )
 		env->key.a = 0;
-	if (key == KEY_D || key == ARROW_RIGHT)
+	if (key == KEY_D)
 		env->key.d = 0;
-	if (key == KEY_L)
+	if (key == ARROW_LEFT)
 		env->key.l = 0;
-	if (key == KEY_R)
+	if (key == ARROW_RIGHT)
 		env->key.r = 0;
 	if (key == KEY_ESC)
 		ft_quit_mlx(env);
 	ft_move(env);
 	return (key);
-}
-
-int			resize_request(void *env)
-{
-	t_env	*s;
-	float	*dist;
-
-	s = (t_env *)env;
-	ft_reset_opti(s->mlx.img.opti);
-	if (!(dist = ft_printf_wall(env)))
-		ft_quit_mlx(env);
-	ft_surface_color(s);
-	free(dist);
-	mlx_put_image_to_window(s->mlx.mlx, s->mlx.win, s->mlx.img.img, 0, 0);
-	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-alen <lde-alen@student.42za>           +#+  +:+       +#+        */
+/*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:40:27 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/28 04:20:22 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 11:35:49 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ t_map		ft_init_map_struct(void)
 {
 	t_map	map;
 
-	map.x_res = WIDTH;
-	map.y_res = HEIGHT;
 	map.fov = FOV;
 	map.floor = -1;
 	map.ceiling = -1;
@@ -32,7 +30,6 @@ t_position	ft_init_position(void)
 	pos.x = 0;
 	pos.y = 0;
 	pos.dir = 0;
-	pos.z = 2;
 	pos.mk = 0;
 	return (pos);
 }
@@ -58,18 +55,7 @@ t_key		ft_init_key(void)
 	key.w = 0;
 	key.r = 0;
 	key.l = 0;
+	key.u = 0;
+	key.v = 0;
 	return (key);
-}
-
-t_wall		*ft_init_wall(void)
-{
-	t_wall	*wall;
-
-	wall = malloc(sizeof(t_wall));
-	wall->wall = 0;
-	wall->x_wall = 0;
-	wall->y_wall = 0;
-	wall->orientation = 'N';
-	wall->dist = 10000;
-	return (wall);
 }

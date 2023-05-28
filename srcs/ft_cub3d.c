@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cub3d.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-alen <lde-alen@student.42za>           +#+  +:+       +#+        */
+/*   By: mmassarw <mmassarw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:39:58 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/28 02:56:12 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 08:37:17 by mmassarw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int		ft_init_struct(char *file)
 		return (ft_error("Error\nCan't open the map !"));
 	if (!(!(error = ft_parse(&env.init, &fd))))
 		return (ft_error(error));
-	if (env.init.ceiling == -1 || env.init.floor == -1 || env.init.x_res == -1)
+	if (env.init.ceiling == -1 || env.init.floor == -1)
 		return (ft_error("Error\nA argument is missing"));
 	env.map = ft_init_map(fd, file, &env.size_y);
 	env.size_x = ft_find_size_x(&env);
