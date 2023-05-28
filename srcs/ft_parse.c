@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 13:41:31 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/28 13:45:24 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 17:01:34 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ int	ft_convert_color(char *str)
 	color = (ft_atoi(s[1]) * 256 + ft_atoi(s[2])) * 256 + ft_atoi(s[3]);
 	while (s[i])
 	{
-		free(s[i]);
+		s[i] = ft_free(s[i]);
 		i++;
 	}
-	free(s);
+	s = ft_free(s);
 	return (color);
 }
 
@@ -59,7 +59,7 @@ char	*ft_parse_texture(char *line, t_map *map)
 	else if (line[0] == 'E' && line[1] == 'A')
 		map->texture[3] = ft_strtrim_path(&line[3], " ");
 	else
-		return ("Not a valid argument\n");
+		return ("Error\nNot a valid argument\n");
 	return (NULL);
 }
 
@@ -81,13 +81,12 @@ char	*ft_parse(t_map *map_def, int *fd)
 		if (l[i] == 'N' || l[i] == 'S' || l[i] == 'W' || l[i] == 'E')
 			error = ft_parse_texture(&l[i], map_def);
 		else if (l[i] == 'F' || l[i] == 'C')
-			error = ft_parse_color(map_def, l);
+			error = ft_parse_color(map_def, l + i);
 		else if (l[i] == '1')
 			ret = 0;
 		else if (l [i] != '\0')
 			error = "Invalid character in .cub\n";
-		free(l);
-		l = NULL;
+		l = ft_free(l);
 	}
 	return (error);
 }

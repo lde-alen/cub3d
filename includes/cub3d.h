@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 14:54:31 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/28 15:19:22 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 15:35:02 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 int				ft_check_color(int r, int g, int b);
 void			ft_reset_opti(char **opti);
 int				ft_error(char *error);
-int				ft_init_struct(char *file);
+int				ft_init(char *file);
 char			*ft_init_mlx(t_env *env);
 void			ft_america(t_env *env);
 int				ft_convert_color(char *str);
@@ -74,7 +74,7 @@ int				ft_create_image(t_env *env, int fd);
 int				key_press(int key, void *param);
 int				key_release(int key, void *param);
 t_key			ft_init_key(void);
-int				ft_init_struct2(t_env *env, char *error);
+int				ft_init2(t_env *env, char *error);
 void			ft_print_square(t_env *env, int x, int y, int size);
 int				ft_find_size_x(t_env *env);
 void			pixel_put(t_env *data, t_vert pos, int color);

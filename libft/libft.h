@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 09:21:31 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/28 14:59:12 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 15:33:35 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define BUFFER_SIZE 1
 
 /*
-	Struct
+	Struct:
 */
 typedef struct s_list
 {

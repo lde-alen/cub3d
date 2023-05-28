@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:40:13 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/28 13:34:31 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 17:00:27 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,11 @@ int	ft_size_map(int fd)
 			size--;
 			ret = 0;
 		}
-		free(line);
-		line = NULL;
+		line = ft_free(line);
 		size++;
 	}
 	if (line)
-		free(line);
+		line = ft_free(line);
 	line = NULL;
 	return (size);
 }
@@ -57,8 +56,7 @@ char	*ft_fill_map(char *file, char **map, int size)
 	while (line[i] != '1' && ret == 1)
 	{
 		i = 0;
-		free(line);
-		line = NULL;
+		line = ft_free(line);
 		ret = get_next_line(fd, &line);
 		while (line[i] == ' ')
 			i++;
@@ -81,12 +79,12 @@ char	*ft_fill_line(int fd, char *line, char **map, int size)
 		ret = get_next_line(fd, &line);
 		j++;
 	}
-	free(line);
+	line = ft_free(line);
 	map[j] = NULL;
 	while (ret == 1)
 	{
 		ret = get_next_line(fd, &line);
-		free(line);
+		line = ft_free(line);
 	}
 	return (NULL);
 }

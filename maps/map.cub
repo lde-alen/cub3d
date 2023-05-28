@@ -1,7 +1,8 @@
 F 94, 1, 1
-C 1, 12, 36
+ C 1, 12, 36
 
 NO textures/purplestone.xpm
+NO textures/city.xpm
 SO textures/halloween.xpm
 EA textures/eagle.xpm
 WE textures/wood.xpm

@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 13:36:33 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/28 13:38:48 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 17:00:45 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	ft_quit_mlx(t_env *s)
 		mlx_destroy_image(s->mlx.mlx, s->tex[i].img);
 	mlx_destroy_image(s->mlx.mlx, s->mlx.img.img);
 	mlx_destroy_window(s->mlx.mlx, s->mlx.win);
-	free(s->mlx.mlx);
+	s->mlx.mlx = ft_free(s->mlx.mlx);
 	ft_america(s);
 	exit(0);
 }
