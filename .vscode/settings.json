@@ -4,6 +4,7 @@
         "cub3d.h": "c",
         "mlx.h": "c",
         "stdio.h": "c",
-        "macros.h": "c"
+        "macros.h": "c",
+        "algorithm": "c"
     }
 }

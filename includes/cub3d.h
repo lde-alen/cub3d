@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 14:54:31 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/28 17:23:22 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 17:39:18 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void			america(t_env *env);
 int				convert_color(char *str);
 char			*parse(t_map *map_def, int *fd);
 char			*parse_color(t_map *init, char *line);
-char			*parse_resolution(t_map *init, char *line);
 char			*parse_texture(char *line, t_map *map_def);
 char			*fill_map(char *file, char **map, int size);
 char			*fill_line(int fd, char *line, char **map, int size);
@@ -54,22 +53,16 @@ t_position		init_position(void);
 char			*ft_control_map(t_env *env);
 int				size_map(int fd);
 int				orientation(char c);
-void			print_map(t_env *env);
 void			move(t_env *env);
 t_position		incr_pos(t_env *env, int incr);
 int				incr_ori(t_position pos, char dir);
 void			quit_mlx(t_env *env);
 void			init_img(t_env *env);
-void			put_img_to_window(t_env *env, int nb);
-void			print_persona(t_env *env, int size);
 int				red_cross(int key, void *param);
-void			ft_adjust_resolution(t_env *s);
-int				resize_request(void *env);
 char			*texture(t_env *s);
 int				ft_mlx_get_color(t_texture text, int x, int y);
 char			*check_zero(char **map, int i, int j, t_env *env);
 char			*control_map(char **map, t_env *env);
-int				create_image(t_env *env, int fd);
 int				key_press(int key, void *param);
 int				key_release(int key, void *param);
 t_key			init_key(void);
@@ -79,6 +72,7 @@ void			pixel_put(t_env *data, t_vert pos, int color);
 void			raycasting(t_env *data);
 bool			check_hit(t_vert to_check, char **map);
 void			render_ray(t_ray ray, t_env *data, int idx);
-void			fill_area(t_env *data, t_vert top_left, t_vert bottom_right, int color);
+void			fill_area(t_env *data, t_vert top_left,
+					t_vert bottom_right, int color);
 
 #endif
