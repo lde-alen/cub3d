@@ -6,20 +6,20 @@
 /*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:40:34 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/28 11:41:48 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 13:40:43 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void		ft_incr_pos_lat(t_env *env, char sign)
+void	ft_incr_pos_lat(t_env *env, char sign)
 {
-	float ang;
+	float	ang;
 
 	if (sign == 'l')
-		ang = env->pos.dir * DTOR + PI/2;
+		ang = env->pos.dir * DTOR + PI / 2;
 	if (sign == 'r')
-		ang = env->pos.dir * DTOR - PI/2;
+		ang = env->pos.dir * DTOR - PI / 2;
 	env->pos.speed = 0.1;
 	env->pos.x += env->pos.speed * cos(ang);
 	env->pos.y -= env->pos.speed * sin(ang);
@@ -29,7 +29,7 @@ void		ft_incr_pos_lat(t_env *env, char sign)
 		env->pos.y += env->pos.speed * sin(ang);
 }
 
-void		ft_move(t_env *env)
+void	ft_move(t_env *env)
 {
 	if (env->key.w)
 		env->pos = ft_incr_pos(env, 1);
@@ -51,11 +51,10 @@ void		ft_move(t_env *env)
 			env->init.fov -= 5;
 	ft_reset_opti(env->mlx.img.opti);
 	raycasting(env);
-	
 	mlx_put_image_to_window(env->mlx.mlx, env->mlx.win, env->mlx.img.img, 0, 0);
 }
 
-int		ft_incr_ori(t_position pos, char dir)
+int	ft_incr_ori(t_position pos, char dir)
 {
 	int	retur;
 	int	incr;
@@ -84,7 +83,7 @@ t_position	ft_incr_pos(t_env *env, int sign)
 	return (env->pos);
 }
 
-void		ft_reset_opti(char **opti)
+void	ft_reset_opti(char **opti)
 {
 	int	i;
 	int	j;

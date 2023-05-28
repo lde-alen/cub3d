@@ -6,19 +6,19 @@
 /*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:39:50 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/28 05:00:50 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 13:32:38 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int			ft_error(char *error)
+int	ft_error(char *error)
 {
 	write(2, error, ft_strlen(error));
 	return (-1);
 }
 
-int			ft_check_color(int r, int g, int b)
+int	ft_check_color(int r, int g, int b)
 {
 	if (r < 0 || r > 255)
 		return (-1);

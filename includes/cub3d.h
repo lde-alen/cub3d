@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmassarw <mmassarw@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/12 10:12:26 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/28 07:53:59 by mmassarw         ###   ########.fr       */
+/*   Created: 2023/05/28 14:45:59 by lde-alen          #+#    #+#             */
+/*   Updated: 2023/05/28 14:47:07 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-#ifdef __linux__
+# ifdef __linux__
 #  include "../miniLibx_linux/mlx.h"
 # else
 #  include "../minilibx_opengl/mlx.h"
@@ -46,7 +46,6 @@ char			*ft_parse(t_map *map_def, int *fd);
 char			*ft_parse_color(t_map *init, char *line);
 char			*ft_parse_resolution(t_map *init, char *line);
 char			*ft_parse_texture(char *line, t_map *map_def);
-char			*ft_parse_map(int fd, char *line, char **map, char *file, t_position *pos);
 char			*ft_fill_map(char *file, char **map, int size);
 char			*ft_fill_line(int fd, char *line, char **map, int size);
 t_map			ft_init_map_struct(void);
@@ -54,11 +53,11 @@ char			**ft_init_map(int fd, char *file, int *size);
 t_position		ft_init_position(void);
 char			*ft_control_map(t_env *env);
 int				ft_size_map(int fd);
-int 			ft_orientation(char c);
+int				ft_orientation(char c);
 void			ft_print_map(t_env *env);
 void			ft_move(t_env *env);
 t_position		ft_incr_pos(t_env *env, int incr);
-int			ft_incr_ori(t_position pos, char dir);
+int				ft_incr_ori(t_position pos, char dir);
 void			ft_quit_mlx(t_env *env);
 void			ft_init_img(t_env *env);
 void			ft_put_img_to_window(t_env *env, int nb);

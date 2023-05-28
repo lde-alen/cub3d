@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: myvh <myvh@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/09 20:40:39 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/11 05:58:25 by myvh             ###   ########.fr       */
+/*   Created: 2023/05/28 13:41:31 by lde-alen          #+#    #+#             */
+/*   Updated: 2023/05/28 13:45:24 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int			ft_convert_color(char *str)
+int	ft_convert_color(char *str)
 {
 	char	**s;
 	int		color;
@@ -34,21 +34,21 @@ int			ft_convert_color(char *str)
 	return (color);
 }
 
-char		*ft_parse_color(t_map *init, char *line)
+char	*ft_parse_color(t_map *init, char *line)
 {
-	int			color;
+	int	color;
 
-		color = ft_convert_color(line);
-		if (color == -1)
-			return ("Error\nBad character in color\n");
-		if (line[0] == 'F')
-			init->floor = color;
-		else
-			init->ceiling = color;
+	color = ft_convert_color(line);
+	if (color == -1)
+		return ("Error\nBad character in color\n");
+	if (line[0] == 'F')
+		init->floor = color;
+	else
+		init->ceiling = color;
 	return (NULL);
 }
 
-char		*ft_parse_texture(char *line, t_map *map)
+char	*ft_parse_texture(char *line, t_map *map)
 {
 	if (line[0] == 'N' && line[1] == 'O')
 		map->texture[0] = ft_strtrim_path(&line[3], " ");
@@ -63,10 +63,10 @@ char		*ft_parse_texture(char *line, t_map *map)
 	return (NULL);
 }
 
-char		*ft_parse(t_map *map_def, int *fd)
+char	*ft_parse(t_map *map_def, int *fd)
 {
 	int			ret;
-	char		*line;
+	char		*l;
 	int			i;
 	char		*error;
 
@@ -74,21 +74,20 @@ char		*ft_parse(t_map *map_def, int *fd)
 	error = NULL;
 	while (ret == 1 && error == NULL)
 	{
-		ret = get_next_line(*fd, &line);
+		ret = get_next_line(*fd, &l);
 		i = 0;
-		while (line && line[i] == ' ')
+		while (l && l[i] == ' ')
 			i++;
-		if (line[i] == 'N' || line[i] == 'S' || line[i] == 'W' ||
-				line[i] == 'E')
-			error = ft_parse_texture(&line[i], map_def);
-		else if (line[i] == 'F' || line[i] == 'C')
-			error = ft_parse_color(map_def, line);
-		else if (line[i] == '1')
+		if (l[i] == 'N' || l[i] == 'S' || l[i] == 'W' || l[i] == 'E')
+			error = ft_parse_texture(&l[i], map_def);
+		else if (l[i] == 'F' || l[i] == 'C')
+			error = ft_parse_color(map_def, l);
+		else if (l[i] == '1')
 			ret = 0;
-		else if (line [i] != '\0')
+		else if (l [i] != '\0')
 			error = "Invalid character in .cub\n";
-		free(line);
-		line = NULL;
+		free(l);
+		l = NULL;
 	}
 	return (error);
 }

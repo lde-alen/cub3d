@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_control_map.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: myvh <myvh@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:39:43 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/11 05:39:41 by myvh             ###   ########.fr       */
+/*   Updated: 2023/05/28 13:29:27 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-char		*ft_control_map(t_env *s)
+char	*ft_control_map(t_env *s)
 {
 	int	i;
 	int	j;
@@ -22,6 +22,7 @@ char		*ft_control_map(t_env *s)
 	{
 		i = -1;
 		while (s->map[j][++i])
+		{
 			if (s->map[j][i] == 'N' || s->map[j][i] == 'E'
 				|| s->map[j][i] == 'W' || s->map[j][i] == 'S')
 			{
@@ -32,16 +33,15 @@ char		*ft_control_map(t_env *s)
 				s->pos.mk++;
 			}
 			else if (s->map[j][i] != '1' && s->map[j][i] != '0'
-				 && s->map[j][i] != ' ')
-			{
+					&& s->map[j][i] != ' ')
 				return ("Error\nBad character inside the map\n");
-			}
+		}
 		j++;
 	}
 	return (control_map(s->map, s));
 }
 
-char		*control_map(char **map, t_env *env)
+char	*control_map(char **map, t_env *env)
 {
 	int		i;
 	int		j;

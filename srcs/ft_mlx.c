@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/27 16:35:06 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/28 11:23:56 by lde-alen         ###   ########.fr       */
+/*   Created: 2023/05/28 13:36:33 by lde-alen          #+#    #+#             */
+/*   Updated: 2023/05/28 13:38:48 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_init_mlx(t_env *s)
 	if (error != NULL)
 		return (error);
 	ft_init_img(s);
-	raycasting(s); 
+	raycasting(s);
 	s->mlx.win = mlx_new_window(s->mlx.mlx, WIDTH, HEIGHT, "Cub3D");
 	mlx_put_image_to_window(s->mlx.mlx, s->mlx.win, s->mlx.img.img, 0, 0);
 	mlx_hook(s->mlx.win, 2, 1L << 0, key_press, (void *)s);
@@ -39,17 +39,19 @@ void	ft_init_img(t_env *s)
 
 	j = -1;
 	s->mlx.img.img = mlx_new_image(s->mlx.mlx,
-		WIDTH, HEIGHT);
+			WIDTH, HEIGHT);
 	if (s->mlx.img.img == NULL)
 		ft_quit_mlx(s);
 	s->mlx.img.addr = mlx_get_data_addr(s->mlx.img.img,
-		&s->mlx.img.bpp, &s->mlx.img.line_len, &s->mlx.img.end);
-	if (!(s->mlx.img.opti = malloc((HEIGHT + 1) * sizeof(char *))))
+			&s->mlx.img.bpp, &s->mlx.img.line_len, &s->mlx.img.end);
+	s->mlx.img.opti = malloc((HEIGHT + 1) * sizeof(char *));
+	if (!s->mlx.img.opti)
 		ft_quit_mlx(s);
 	while (++j < HEIGHT)
 	{
 		i = -1;
-		if (!(s->mlx.img.opti[j] = malloc((WIDTH + 1) * sizeof(char))))
+		s->mlx.img.opti[j] = malloc((WIDTH + 1) * sizeof(char));
+		if (!s->mlx.img.opti[j])
 			ft_quit_mlx(s);
 		while (++i < WIDTH)
 			s->mlx.img.opti[j][i] = '0';
@@ -77,9 +79,9 @@ void	ft_nextframe(t_env *data)
 	mlx_destroy_image(data->mlx.mlx, data->mlx.img.img);
 	mlx_clear_window(data->mlx.mlx, data->mlx.win);
 	data->mlx.img.img = mlx_new_image(data->mlx.mlx, WIDTH, HEIGHT);
-	data->mlx.img.addr = mlx_get_data_addr(data->mlx.img.img,\
- &data->mlx.img.bpp, &data->mlx.img.line_len, &data->mlx.img.end);
+	data->mlx.img.addr = mlx_get_data_addr(data->mlx.img.img,
+			&data->mlx.img.bpp, &data->mlx.img.line_len, &data->mlx.img.end);
 	raycasting(data);
-	mlx_put_image_to_window(data->mlx.mlx, data->mlx.win,\
- data->mlx.img.img, 0, 0);
+	mlx_put_image_to_window(data->mlx.mlx, data->mlx.win,
+		data->mlx.img.img, 0, 0);
 }

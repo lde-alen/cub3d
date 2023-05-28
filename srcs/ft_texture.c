@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_texture.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmassarw <mmassarw@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:41:55 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/28 09:28:10 by mmassarw         ###   ########.fr       */
+/*   Updated: 2023/05/28 13:46:59 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,19 @@ char	*ft_texture(t_env *s)
 		if (fd == -1)
 			return ("Error\nNot a good texture.");
 		s->tex[i].img = mlx_xpm_file_to_image(s->mlx.mlx,
-			s->init.texture[i], &s->tex[i].width, &s->tex[i].height);
+				s->init.texture[i], &s->tex[i].width, &s->tex[i].height);
 		if (s->tex[i].img == NULL)
 			return ("Error\nNot a good texture.");
 		s->tex[i].data.addr = mlx_get_data_addr(s->tex[i].img,
-			&s->tex[i].data.bpp, &s->tex[i].data.line_len, &s->tex[i].data.end);
+				&s->tex[i].data.bpp, &s->tex[i].data.line_len,
+				&s->tex[i].data.end);
 		s->tex[i].color = ft_mlx_get_color(s->tex[i], 0, 0);
 		close(fd);
 	}
 	return (NULL);
 }
 
-int		ft_mlx_get_color(t_texture text, int x, int y)
+int	ft_mlx_get_color(t_texture text, int x, int y)
 {
 	unsigned int	color;
 	int				index;
@@ -59,6 +60,7 @@ void	pixel_put(t_env *data, t_vert pos, int color)
 
 	if (pos.y < 0 || pos.y >= HEIGHT || pos.x < 0 || pos.x >= WIDTH)
 		return ;
-	pixel = data->mlx.img.addr + (pos.y * data->mlx.img.line_len + pos.x * (data->mlx.img.bpp / 8));
+	pixel = data->mlx.img.addr + (pos.y * data->mlx.img.line_len
+			+ pos.x * (data->mlx.img.bpp / 8));
 	*(unsigned int *) pixel = color;
 }

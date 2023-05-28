@@ -5,15 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/12 10:16:46 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/28 11:32:16 by lde-alen         ###   ########.fr       */
+/*   Created: 2023/05/28 14:49:03 by lde-alen          #+#    #+#             */
+/*   Updated: 2023/05/28 14:50:15 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STRUCTURE_H
-# define FT_STRUCTURE_H
+#ifndef STRUCTS_H
+# define STRUCTS_H
 
-typedef struct	s_map
+typedef struct s_map
 {
 	char	*texture[4];
 	int		fov;
@@ -21,7 +21,7 @@ typedef struct	s_map
 	int		ceiling;
 }				t_map;
 
-typedef struct	s_position
+typedef struct s_position
 {
 	float	x;
 	float	y;
@@ -30,7 +30,7 @@ typedef struct	s_position
 	int		mk;
 }				t_position;
 
-typedef struct	s_img
+typedef struct s_img
 {
 	void	*img;
 	char	*addr;
@@ -40,7 +40,7 @@ typedef struct	s_img
 	char	**opti;
 }				t_img;
 
-typedef struct	s_texture
+typedef struct s_texture
 {
 	void	*img;
 	int		width;
@@ -49,14 +49,14 @@ typedef struct	s_texture
 	int		color;
 }				t_texture;
 
-typedef struct	s_mlx_ptr
+typedef struct s_mlx_ptr
 {
 	void	*mlx;
 	void	*win;
 	t_img	img;
 }				t_mlx_ptr;
 
-typedef struct	s_key
+typedef struct s_key
 {
 	short		w;
 	short		s;
@@ -107,7 +107,7 @@ typedef struct s_rayutils
 	t_vert	check_vert;
 }	t_rayutils;
 
-typedef struct	s_env
+typedef struct s_env
 {
 	t_mlx_ptr	mlx;
 	t_position	pos;
@@ -119,6 +119,5 @@ typedef struct	s_env
 	t_texture	tex[4];
 	t_key		key;
 }				t_env;
-
 
 #endif

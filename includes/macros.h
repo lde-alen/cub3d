@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   macros.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmassarw <mmassarw@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 16:50:56 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/28 09:27:45 by mmassarw         ###   ########.fr       */
+/*   Updated: 2023/05/28 14:48:25 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,6 @@
 # define WIDTH 1920
 # define HEIGHT 1080
 # define DTOR 0.0174532925199
-
-/*
-	KEY Macraaazzzz for the keyboard and mouse both linux and macos
-*/
 
 # ifdef __linux__
 #  define MLB			1

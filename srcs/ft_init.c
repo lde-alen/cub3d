@@ -5,15 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/09 20:40:27 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/28 11:35:49 by lde-alen         ###   ########.fr       */
+/*   Created: 2023/05/28 13:35:11 by lde-alen          #+#    #+#             */
+/*   Updated: 2023/05/28 13:35:56 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "cub3d.h"
 
-t_map		ft_init_map_struct(void)
+t_map	ft_init_map_struct(void)
 {
 	t_map	map;
 
@@ -34,18 +33,19 @@ t_position	ft_init_position(void)
 	return (pos);
 }
 
-char		**ft_init_map(int fd, char *file, int *size)
+char	**ft_init_map(int fd, char *file, int *size)
 {
 	char	**map;
 
 	*size = ft_size_map(fd);
-	if (!(map = malloc((*size + 1) * sizeof(char *))))
+	map = malloc((*size + 1) * sizeof(char *));
+	if (!map)
 		return (NULL);
 	ft_fill_map(file, map, *size);
 	return (map);
 }
 
-t_key		ft_init_key(void)
+t_key	ft_init_key(void)
 {
 	t_key	key;
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cub3d.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmassarw <mmassarw@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:39:58 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/28 08:37:17 by mmassarw         ###   ########.fr       */
+/*   Updated: 2023/05/28 13:31:45 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_america(t_env *env)
 	free(env->mlx.img.opti);
 }
 
-int		ft_init_struct(char *file)
+int	ft_init_struct(char *file)
 {
 	t_env		env;
 	char		*error;
@@ -44,7 +44,8 @@ int		ft_init_struct(char *file)
 	fd = open(file, O_RDONLY);
 	if (fd == -1 || read(fd, (void *)0, 0) == -1)
 		return (ft_error("Error\nCan't open the map !"));
-	if (!(!(error = ft_parse(&env.init, &fd))))
+	error = ft_parse(&env.init, &fd);
+	if (error)
 		return (ft_error(error));
 	if (env.init.ceiling == -1 || env.init.floor == -1)
 		return (ft_error("Error\nA argument is missing"));
@@ -53,17 +54,18 @@ int		ft_init_struct(char *file)
 	if (env.size_x == -1)
 		return (ft_error("Error\nMalloc"));
 	error = ft_control_map(&env);
-	return (ft_init_struct2(&env,  error));
+	return (ft_init_struct2(&env, error));
 }
 
-int		ft_find_size_x(t_env *env)
+int	ft_find_size_x(t_env *env)
 {
 	int		size;
 	int		i;
 
 	i = 0;
 	size = 0;
-	if (!(env->size_line = malloc(sizeof(int) * env->size_y)))
+	env->size_line = malloc(sizeof(int) * env->size_y);
+	if (!env->size_line)
 		return (-1);
 	while (env->map[i])
 	{
@@ -75,7 +77,7 @@ int		ft_find_size_x(t_env *env)
 	return (size);
 }
 
-int		ft_init_struct2(t_env *env,  char *error)
+int	ft_init_struct2(t_env *env, char *error)
 {
 	if (error && error[0] == 'E')
 		return (ft_error(error));
@@ -86,7 +88,7 @@ int		ft_init_struct2(t_env *env,  char *error)
 	return (0);
 }
 
-int		main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	if (ac != 2)
 	{

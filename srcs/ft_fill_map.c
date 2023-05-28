@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_fill_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-alen <lde-alen@student.42za>           +#+  +:+       +#+        */
+/*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:40:13 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/28 04:35:21 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 13:34:31 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "cub3d.h"
 
-int			ft_size_map(int fd)
+int	ft_size_map(int fd)
 {
 	int		ret;
 	int		size;
@@ -42,7 +41,7 @@ int			ft_size_map(int fd)
 	return (size);
 }
 
-char		*ft_fill_map(char *file, char **map, int size)
+char	*ft_fill_map(char *file, char **map, int size)
 {
 	int		fd;
 	char	*line;
@@ -67,7 +66,7 @@ char		*ft_fill_map(char *file, char **map, int size)
 	return (ft_fill_line(fd, line, map, size));
 }
 
-char		*ft_fill_line(int fd, char *line, char **map, int size)
+char	*ft_fill_line(int fd, char *line, char **map, int size)
 {
 	int		j;
 	int		ret;
@@ -76,7 +75,8 @@ char		*ft_fill_line(int fd, char *line, char **map, int size)
 	ret = 1;
 	while (j < size)
 	{
-		if (!(map[j] = line))
+		map[j] = line;
+		if (!map[j])
 			return ("Error\nMalloc\n");
 		ret = get_next_line(fd, &line);
 		j++;
@@ -91,7 +91,7 @@ char		*ft_fill_line(int fd, char *line, char **map, int size)
 	return (NULL);
 }
 
-int		ft_orientation(char c)
+int	ft_orientation(char c)
 {
 	if (c == 'N')
 		return (90);
@@ -105,7 +105,7 @@ int		ft_orientation(char c)
 		return (-1);
 }
 
-char		*ft_check_zero(char **map, int i, int j, t_env *env)
+char	*ft_check_zero(char **map, int i, int j, t_env *env)
 {
 	if (j - 1 < 0 || i - 1 < 0 || env->size_x == 0 || env->size_y == 0)
 		return ("Error\nBad map.");

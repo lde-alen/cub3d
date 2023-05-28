@@ -6,13 +6,13 @@
 /*   By: lde-alen <lde-alen@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 16:47:56 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/28 11:34:27 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 13:33:18 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int			red_cross(int key, void *param)
+int	red_cross(int key, void *param)
 {
 	t_env	*env;
 
@@ -22,9 +22,9 @@ int			red_cross(int key, void *param)
 	return (key);
 }
 
-int			key_press(int key, void *param)
+int	key_press(int key, void *param)
 {
-	t_env *env;
+	t_env	*env;
 
 	env = (t_env *)param;
 	mlx_clear_window(env->mlx.mlx, env->mlx.win);
@@ -50,9 +50,9 @@ int			key_press(int key, void *param)
 	return (key);
 }
 
-int			key_release(int key, void *param)
+int	key_release(int key, void *param)
 {
-	t_env *env;
+	t_env	*env;
 
 	env = (t_env *)param;
 	mlx_clear_window(env->mlx.mlx, env->mlx.win);
@@ -64,7 +64,7 @@ int			key_release(int key, void *param)
 		env->key.v = 0;
 	if (key == KEY_S)
 		env->key.s = 0;
-	if (key == KEY_A )
+	if (key == KEY_A)
 		env->key.a = 0;
 	if (key == KEY_D)
 		env->key.d = 0;
