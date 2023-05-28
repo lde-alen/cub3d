@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42za>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 10:12:26 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/28 02:56:31 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 04:16:35 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,11 @@
  *  Prototypes
  * 
  **/
-int				ft_check_map(char *str);
-float			angle(float alpha, float beta);
+
 int				ft_check_color(int r, int g, int b);
-int				field_of_view(t_env *env, float alpha);
 void			ft_mlx_pixel_put_sprite(t_img image, int x, int y, int color);
 void			ft_reset_opti(char **opti);
 int				ft_error(char *error);
-int				ft_size_mini_map(t_env *env);
 int				ft_init_struct(char *file);
 char			*ft_init_mlx(t_env *env);
 void			ft_america(t_env *env);
@@ -53,7 +50,7 @@ char			*ft_parse_texture(char *line, t_map *map_def);
 char			*ft_parse_map(int fd, char *line, char **map, char *file, t_position *pos);
 char			*ft_fill_map(char *file, char **map, int size);
 char			*ft_fill_line(int fd, char *line, char **map, int size);
-t_map			ft_init_map_struct();
+t_map			ft_init_map_struct(void);
 char			**ft_init_map(int fd, char *file, int *size);
 t_position		ft_init_position(void);
 char			*ft_control_map(t_env *env);
@@ -96,16 +93,12 @@ char			*ft_check_zero(char **map, int i, int j, t_env *env);
 char			*control_map(char **map, t_env *env);
 float			ft_lim_alpha(float alpha);
 float			ft_dist(float x_w, float y_w, float x0, float y0);
-void			ft_save_bitmap(t_env *env);
-void			ft_fill_bmp(t_env *env, int fd);
+
 int				ft_create_image(t_env *env, int fd);
 int				key_press(int key, void *param);
 int				key_release(int key, void *param);
-void			ft_print_all(t_env *env);
 t_key			ft_init_key(void);
-void			ft_up_down(t_env *env, int key);
 int				ft_init_struct2(t_env *env, char *error);
 void			ft_print_square(t_env *env, int x, int y, int size);
-void			ft_print_life(t_env *env);
 int				ft_find_size_x(t_env *env);
 #endif

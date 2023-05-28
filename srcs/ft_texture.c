@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42za>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:41:55 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/28 02:28:07 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 04:14:04 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,4 @@ void	ft_mlx_pixel_put(t_img image, int x, int y, int color)
 		*(unsigned int*)dst = color;
 		image.opti[y][x] = '1';
 	}
-}
-
-void	ft_mlx_pixel_put_sprite(t_img image, int x, int y, int color)
-{
-	char	*dst;
-
-	dst = image.addr + (y * image.line_len + x * (image.bpp / 8));
-	*(unsigned int*)dst = color;
 }

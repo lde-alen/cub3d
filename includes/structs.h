@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmassarw <mmassarw@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lde-alen <lde-alen@student.42za>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 10:16:46 by lde-alen          #+#    #+#             */
-/*   Updated: 2023/05/28 03:05:32 by mmassarw         ###   ########.fr       */
+/*   Updated: 2023/05/28 04:18:52 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ typedef struct	s_map
 	char	*texture[4];
 	int		x_res;
 	int		y_res;
+	int		fov;
 	int		floor;
 	int		ceiling;
 }				t_map;

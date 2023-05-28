@@ -6,7 +6,7 @@
 /*   By: lde-alen <lde-alen@student.42za>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:40:27 by myvh              #+#    #+#             */
-/*   Updated: 2023/05/28 02:25:05 by lde-alen         ###   ########.fr       */
+/*   Updated: 2023/05/28 04:18:34 by lde-alen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ t_map		ft_init_map_struct(void)
 {
 	t_map	map;
 
-	map.x_res = 800;
-	map.y_res = 600;
+	map.x_res = WIDTH;
+	map.y_res = HEIGHT;
+	map.fov = FOV;
 	map.floor = -1;
 	map.ceiling = -1;
 	return (map);
